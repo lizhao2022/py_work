@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 def get_section_property(a, b):# 定义函数计算截面特性
-	# 输入参数为划分的三角形点坐标矩阵、三角形点线顺序矩阵
+	# 输入参数为划分的三角形点坐标矩阵a、三角形点线顺序矩阵b
 	# 输出参数为面积、对xc轴惯性矩、对yc轴惯性矩、形心yc、形心xc、形心轴yc单侧面积矩、形心轴xc单侧面积矩
 	inertia_x_sum = 0# 总惯性矩
 	inertia_y_sum = 0# 总惯性矩
