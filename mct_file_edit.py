@@ -8,6 +8,15 @@
 bridge_width= 49.96# 桥面宽度
 web_quantity= 10# 腹板数量
 web_thickness= 0.8# 腹板厚度
+beam_hight= 2# 梁高
+
+def ins_file
+ins_start=425# 文件修改起始行
+ins_line_num=5# 文件修改行数
+for i in range(ins_line_num):
+	j=i+ins_start
+	data.insert(j,sec_insert[i])# 逐行插入修改
+	del data[j+1]# 删除被修改的原行
 
 sec_pro=[[],[],[],[],[]]
 sec_pro[0]=[10, 11, 12, 13, 14, 15]
@@ -16,17 +25,28 @@ sec_pro[2]=[30, 31, 32, 33, 34, 35, 36, 37]
 sec_pro[3]=[40, 41, 42, 43]
 sec_pro[4]=[51, 52, 53]
 
-node_line=28
-node_num1=82
-node_x=list(range(node_num1))
+
+
+node_line_start=28
+node_num1=86
+node_x=list(range(86))
+node_z=[0 for i in range(86)]
+node_z[82]=-beam_hight
+node_z[83]=-beam_hight
+node_z[84]=-beam_hight
+node_z[85]=-beam_hight
 node_insert=list(range(node_num1))
+# 修改节点x坐标
 for i in range(node_num1):
-	node_insert[i]='     1, {node_x}, 0, 0\n'.format(node_x=node_x[i])
+	node_insert[i]='     1, {node_x}, 0, {node_z}\n'.format(node_x=node_x[i], node_z=node_z[i])
 	print(node_insert[i])
 
-file_name='SHB40-43.mct'# 模板文件
+
+file_name='template.mct'# 模板文件
 with open(file_name, 'r') as file_template:
 	data=file_template.readlines()# 读取文件字符串内容做为原始数据列表
+	
+	
 sec_insert=['', '', '', '', '']# 初始截面特性列表块
 sec_insert[0]='       {AREA}, {ASy}, {ASz}, {Ixx}, {Iyy}, {Izz}\n'.format(AREA=sec_pro[0][0], ASy=sec_pro[0][1],  ASz=sec_pro[0][2], Ixx=sec_pro[0][3], Iyy=sec_pro[0][4], Izz=sec_pro[0][5])
 sec_insert[1]='       {Cyp}, {Cym}, {Czp}, {Czm}, {Qyb}, {Qzb}, {PERI_OUT}, {PERI_IN}, {Cy}, {Cz}\n'.format(Cyp=sec_pro[1][0], Cym=sec_pro[1][1],  Czm=sec_pro[1][2], Czp=sec_pro[1][3], Qyb=sec_pro[1][4], Qzb=sec_pro[1][5],PERI_OUT=sec_pro[1][6], PERI_IN=sec_pro[1][7], Cy=sec_pro[1][8], Cz=sec_pro[1][9])
@@ -34,18 +54,13 @@ sec_insert[2]='       {Y1}, {Y2}, {Y3}, {Y4}, {Z1}, {Z2}, {Z3}, {Z4}\n'.format(Y
 sec_insert[3]='       {HT}, {BT}, {T1}, {T2}\n'.format(HT=sec_pro[3][0], BT=sec_pro[3][1], T1=sec_pro[3][2], T2=sec_pro[3][3])
 sec_insert[4]='       YES, {ZZ1}, {ZZ3}, YES, , YES, , YES, , [tw], YES, , YES, , YES,\n'.format(ZZ1=sec_pro[4][0], ZZ3=sec_pro[4][1], tw=sec_pro[4][2])
 
-ins_start=425# 文件修改起始行
-ins_line_num=5# 文件修改行数
-for i in range(ins_line_num):
-	j=i+ins_start
-	data.insert(j,sec_insert[i])# 逐行插入修改
-	del data[j+1]# 删除被修改的原行
 
 
 
 
 
-project_name='A0-A3.mct'# 模型文件名，即midas软件的.mct文件
+
+project_name='test.mct'# 模型文件名，即midas软件的.mct文件
 with open(project_name, 'w') as file_object:
 	file_object.writelines(data)
 
