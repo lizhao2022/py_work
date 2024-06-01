@@ -1,6 +1,7 @@
 # 程序用于自动划分节点x坐标，应用范围：直线3跨连续梁
 # 输入参数为：跨径组合、横梁宽度、支座梁端距、梁端缝宽、腹板加厚段长度、腹板变厚段长度、顶底板加腋长度
 # 输出参数为：列表node_x，表示连续梁单元节点及虚拟支座节点x坐标
+import json
 span=[30, 30, 30]# 跨径组合，3跨为例
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
 pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
@@ -115,3 +116,7 @@ node_x[74]=node_x[72]+(node_x[78]-node_x[72])/6*2
 node_x[75]=node_x[72]+(node_x[78]-node_x[72])/6*3
 node_x[76]=node_x[72]+(node_x[78]-node_x[72])/6*4
 node_x[77]=node_x[72]+(node_x[78]-node_x[72])/6*5
+
+filename='node_x.json'
+with open(filename, 'w') as f_obj:
+	json.dump(node_x, f_obj)

@@ -1,13 +1,13 @@
-# 程序用于计算单箱多室截面特性
+# 程序用于生成单箱多室截面并计算特性
 # 既定：梁高2、双侧鱼腹式悬臂5、悬臂小箱、顶板厚0.28、底板厚0.22、顶板倒角1*0.2、底板倒角0.6*0.2
 # 输入值：桥面宽度、腹板数量、腹板厚度
-# 输出值：面积、对xc轴惯性矩、对yc轴惯性矩、形心yc、形心xc
-# 输出值：形心扭转惯性矩、沿x有效剪切面积、沿y有效剪切面积、沿xc剪切系数、沿yc剪切系数
-# 输出值：形心外框4个应力点坐标、对形心轴外框4个点距离、截面外轮廓周长、截面内轮廓周长
+# 输出值：截面线框点坐标、截面特性
+
 import triangle as tr
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import json
 def get_section_property(a, b):# 定义函数计算截面特性
 	# 输入参数为划分的三角形点坐标矩阵a、三角形点线顺序矩阵b
 	# 输出参数为面积、对xc轴惯性矩、对yc轴惯性矩、形心yc、形心xc、形心轴yc单侧面积矩、形心轴xc单侧面积矩
@@ -69,7 +69,7 @@ def get_segment(vector):# 定义函数进行点线分段编号
 	return vector_matrix
 	
 def get_polygon(bw,web_n,tw):# 定义函数生成截面
-	'''# 截面类型为单箱多室'''
+	# 截面类型为单箱多室
 	# 既定：梁高2、双侧鱼腹式悬臂5、悬臂小箱、顶板厚0.28、底板厚0.22、顶板倒角1*0.2、底板倒角0.6*0.2
 	# 输入参数为截面宽度、腹板数量、腹板厚度
 	# 输出参数为截面拐点坐标矩阵、箱内空心点坐标矩阵、闭合框线数量列表
@@ -103,16 +103,16 @@ tr_input= dict(vertices=polygon,segments=seg,holes=hole_point)# 整理triangle�
 tr_output= tr.triangulate(tr_input,'a0.04q30lpen',)# 执行triangle划分
 A, Ixx, Iyy, cent_y, cent_x, Qy, Qx= get_section_property(tr_output['vertices'], tr_output['triangles'])# 整理triangle出参
 
-Qyb=Qy/(web_quantity*web_thickness)# 沿yc剪切系数
-Qxb=Qx/(0.28+0.22)# 沿xc剪切系数
-Izz=(bridge_width-5.45*2)*1.75# 扭转惯性矩
-Asx=(bridge_width-5*2)*0.22+bridge_width*0.28# 沿xc有效剪切面积
-Asy=web_quantity*web_thickness*2# 沿yc有效剪切面积
-peri_out=10*2+bridge_width*2-5*2# 外轮廓周长
-peri_in=1*2+(web_quantity-1)*7.5+(bridge_width-5.45*2-(web_quantity-1)*(web_thickness+2))*2# 内轮廓周长
-stress_point_location=[[-cent_x, -cent_y], [cent_x, -cent_y], [cent_x-5, -cent_y-2], [-cent_x+5, -cent_y-2]]# 形心外框4个应力点坐标
-yc_distance=cent_y+2 # 截面最下端到形心的距离
-xc_distance=cent_x#  截面最左侧到形心的距离
+Qyb=Qy/(web_quantity*web_thickness)# 计算沿yc剪切系数
+Qxb=Qx/(0.28+0.22)# 计算沿xc剪切系数
+Izz=(bridge_width-5.45*2)*1.75# 计算扭转惯性矩
+Asx=(bridge_width-5*2)*0.22+bridge_width*0.28# 计算沿xc有效剪切面积
+Asy=web_quantity*web_thickness*2# 计算沿yc有效剪切面积
+peri_out=10*2+bridge_width*2-5*2# 计算外轮廓周长
+peri_in=1*2+(web_quantity-1)*7.5+(bridge_width-5.45*2-(web_quantity-1)*(web_thickness+2))*2# 计算内轮廓周长
+stress_point_location=[[-cent_x, -cent_y], [cent_x, -cent_y], [cent_x-5, -cent_y-2], [-cent_x+5, -cent_y-2]]# 计算形心外框4个应力点坐标
+yc_distance=cent_y+2 # 计算截面最下端到形心的距离
+xc_distance=cent_x#  计算截面最左侧到形心的距离
 cxp=xc_distance
 cxm=xc_distance
 cyp=2-yc_distance
@@ -124,7 +124,7 @@ BT=bridge_width-5.45*2
 Z1=T1+0.2# 剪切验算位置Z1
 Z3=2-T2-0.2# 剪切验算位置Z3
 tw=0.25# 验算扭转用厚度
-# 此处统一按列表输出截面特性参数，列表顺序为mct文件对应的参数顺序
+# 调整截面特性输出格式，对应.mct文件的参数顺序
 # 本程序定义截面的坐标轴（x0,y0,z0）与mct文件坐标轴(X,Y,Z)，对应转换关系为x0轴>Y轴，y0轴>Z轴，z0轴>X轴
 sec_pro=[[],[],[],[],[]]
 sec_pro[0]=[A, Asx, Asy, Ixx, Iyy, Izz]
@@ -133,11 +133,29 @@ sec_pro[2]=[stress_point_location[0][0], stress_point_location[1][0], stress_poi
 sec_pro[3]=[HT, BT, T1, T2]
 sec_pro[4]=[Z1, Z3, tw]
 
-# ~ print('A=%.4f, Izz=%.4f, Ixx=%.4f, Iyy=%.4f' %(A,Izz,Ixx,Iyy))
-# ~ print('Asx=%.4f, Asy=%.4f, Qxb=%.4f, Qyb=%.4f' %(Asx,Asy,Qxb,Qyb))
-# ~ print('peri_out=%.4f, peri_in=%.4f, c_x=%.4f, c_y=%.4f' %(peri_out,peri_in,xc_distance,yc_distance))
-# ~ print('cxp=%.4f, cxm=%.4f, cyp=%.4f, cym=%.4f' %(cxp,cxm,cyp,cym))
-# ~ print('stp_xy=', stress_point_location)
+# 调整截面坐标输出格式
+for i in range(len(polygon)):# 以形心为原点，对截面坐标进行转换
+	polygon[i]=[polygon[i][0]-cent_x,polygon[i][1]-cent_y]
+polygon_array=sum(polygon,[])# 二维转一维
+polygon_ser=[0]*(web_quantity-1+3+1)# 初始框线控制序号
+polygon_ser[1]=12# 修改赋值：第一行外轮廓12节点
+polygon_ser[2]=polygon_ser[1]+7# 第二行左侧小箱7节点
+for i in range(web_quantity-1):
+	polygon_ser[i+3]=polygon_ser[i+2]+8# 中间箱8节点
+polygon_ser[-1]=polygon_ser[-2]+7# 最后一行右侧小箱7节点
+polygon_output=[[]]*(web_quantity-1+3)# 初始线框坐标列表，每行一个线框
+for i in range(web_quantity-1+3):
+	polygon_output[i]=polygon_array[polygon_ser[i]*2:polygon_ser[i+1]*2]# 逐行赋值线框坐标
+
+# 输出截面特性
+filename='sec_pro.json'
+with open(filename, 'w') as f_obj:
+	json.dump(sec_pro, f_obj)
+# 输出截面坐标
+filename='sec_polygon.json'
+with open(filename, 'w') as f_obj:
+	json.dump(polygon_output, f_obj)
+	
+# ~ # 截面三角划分绘图
 # ~ tr.compare(plt, tr_input, tr_output)
 # ~ plt.show()
-
