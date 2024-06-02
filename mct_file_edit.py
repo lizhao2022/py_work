@@ -9,9 +9,9 @@ import json
 file_name='sec_pro.json'# 读取截面特性数据
 with open(file_name) as f_obj:
 	sec_pro=json.load(f_obj)
-file_name='sec_polygon.json'# 读取截面线框数据
+file_name='sec_poly.json'# 读取截面线框数据
 with open(file_name) as f_obj:
-	sec_polygon=json.load(f_obj)
+	sec_poly=json.load(f_obj)
 file_name='node_x.json'# 读取节点坐标数据
 with open(file_name) as f_obj:
 	node_x=json.load(f_obj)
@@ -81,46 +81,46 @@ def sec_taper_str_build(pro_i, poly_i, pro_j, poly_j):
 	# 建立首端截面外轮廓字符串列表
 	outpoly_i=[[]]*4
 	outpoly_i[0]='       OPOLY=YES, '+', '.join([str(x) for x in poly_i[0][0:8]])+'\n'
-	outpoly_i[1]='             '+', '.join([str(x) for x in poly_i[0][8:14]])+'\n'
-	outpoly_i[2]='             '+', '.join([str(x) for x in poly_i[0][14:20]])+'\n'
-	outpoly_i[3]='             '+', '.join([str(x) for x in poly_i[0][20:24]])+'\n'
+	outpoly_i[1]='                  '+', '.join([str(x) for x in poly_i[0][8:14]])+'\n'
+	outpoly_i[2]='                  '+', '.join([str(x) for x in poly_i[0][14:20]])+'\n'
+	outpoly_i[3]='                  '+', '.join([str(x) for x in poly_i[0][20:24]])+'\n'
 	# 建立首端第一个小箱
 	inpoly_i_first=[[]]*2
-	inpoly_i_first[0]='       IPOLY=YES'+', '.join([str(x) for x in poly_i[1][0:8]])+'\n'
-	inpoly_i_first[1]='             '+', '.join([str(x) for x in poly_i[1][8:14]])+'\n'
+	inpoly_i_first[0]='       IPOLY=YES, '+', '.join([str(x) for x in poly_i[1][0:8]])+'\n'
+	inpoly_i_first[1]='                  '+', '.join([str(x) for x in poly_i[1][8:14]])+'\n'
 	# 建立首端中间箱
 	inpoly_i_mid=[[]]*(len(poly_i)-3)*3# 初始中间箱，每箱3行
 	for i in range(len(poly_i)-3):# 逐箱建立
-		inpoly_i_mid[i*3]='       IPOLY=YES'+', '.join([str(x) for x in poly_i[i+2][0:8]])+'\n'
-		inpoly_i_mid[i*3+1]='             '+', '.join([str(x) for x in poly_i[i+2][8:14]])+'\n'
-		inpoly_i_mid[i*3+2]='             '+', '.join([str(x) for x in poly_i[i+2][14:16]])+'\n'
+		inpoly_i_mid[i*3]='       IPOLY=YES, '+', '.join([str(x) for x in poly_i[i+2][0:8]])+'\n'
+		inpoly_i_mid[i*3+1]='                  '+', '.join([str(x) for x in poly_i[i+2][8:14]])+'\n'
+		inpoly_i_mid[i*3+2]='                  '+', '.join([str(x) for x in poly_i[i+2][14:16]])+'\n'
 	# 建立首端最后一个小箱
 	inpoly_i_last=[[]]*2
-	inpoly_i_last[0]='       IPOLY=YES'+', '.join([str(x) for x in poly_i[-1][0:8]])+'\n'
-	inpoly_i_last[1]='             '+', '.join([str(x) for x in poly_i[-1][8:14]])+'\n'
+	inpoly_i_last[0]='       IPOLY=YES, '+', '.join([str(x) for x in poly_i[-1][0:8]])+'\n'
+	inpoly_i_last[1]='                  '+', '.join([str(x) for x in poly_i[-1][8:14]])+'\n'
 	# 合并截面首端轮廓所有项
 	poly_str_i=outpoly_i+inpoly_i_first+inpoly_i_mid+inpoly_i_last
 	
 	# 建立尾端截面外轮廓字符串列表
 	outpoly_j=[[]]*4
 	outpoly_j[0]='       OPOLY=NO, '+', '.join([str(x) for x in poly_j[0][0:8]])+'\n'
-	outpoly_j[1]='             '+', '.join([str(x) for x in poly_j[0][8:14]])+'\n'
-	outpoly_j[2]='             '+', '.join([str(x) for x in poly_j[0][14:20]])+'\n'
-	outpoly_j[3]='             '+', '.join([str(x) for x in poly_j[0][20:24]])+'\n'
+	outpoly_j[1]='                 '+', '.join([str(x) for x in poly_j[0][8:14]])+'\n'
+	outpoly_j[2]='                 '+', '.join([str(x) for x in poly_j[0][14:20]])+'\n'
+	outpoly_j[3]='                 '+', '.join([str(x) for x in poly_j[0][20:24]])+'\n'
 	# 建立尾端第一个小箱
 	inpoly_j_first=[[]]*2
-	inpoly_j_first[0]='       IPOLY=NO'+', '.join([str(x) for x in poly_j[1][0:8]])+'\n'
-	inpoly_j_first[1]='             '+', '.join([str(x) for x in poly_j[1][8:14]])+'\n'
+	inpoly_j_first[0]='       IPOLY=NO, '+', '.join([str(x) for x in poly_j[1][0:8]])+'\n'
+	inpoly_j_first[1]='                 '+', '.join([str(x) for x in poly_j[1][8:14]])+'\n'
 	# 建立尾端中间箱
 	inpoly_j_mid=[[]]*(len(poly_j)-3)*3# 初始中间箱，每箱3行
 	for i in range(len(poly_j)-3):# 逐箱建立
-		inpoly_j_mid[i*3]='       IPOLY=NO'+', '.join([str(x) for x in poly_j[i+2][0:8]])+'\n'
-		inpoly_j_mid[i*3+1]='             '+', '.join([str(x) for x in poly_j[i+2][8:14]])+'\n'
-		inpoly_j_mid[i*3+2]='             '+', '.join([str(x) for x in poly_j[i+2][14:16]])+'\n'
+		inpoly_j_mid[i*3]='       IPOLY=NO, '+', '.join([str(x) for x in poly_j[i+2][0:8]])+'\n'
+		inpoly_j_mid[i*3+1]='                 '+', '.join([str(x) for x in poly_j[i+2][8:14]])+'\n'
+		inpoly_j_mid[i*3+2]='                 '+', '.join([str(x) for x in poly_j[i+2][14:16]])+'\n'
 	# 建立尾端最后一个小箱
 	inpoly_j_last=[[]]*2
-	inpoly_j_last[0]='       IPOLY=NO'+', '.join([str(x) for x in poly_j[-1][0:8]])+'\n'
-	inpoly_j_last[1]='             '+', '.join([str(x) for x in poly_j[-1][8:14]])+'\n'
+	inpoly_j_last[0]='       IPOLY=NO, '+', '.join([str(x) for x in poly_j[-1][0:8]])+'\n'
+	inpoly_j_last[1]='                 '+', '.join([str(x) for x in poly_j[-1][8:14]])+'\n'
 	# 合并截面首端轮廓所有项
 	poly_str_j=outpoly_j+inpoly_j_first+inpoly_j_mid+inpoly_j_last
 	
@@ -128,18 +128,34 @@ def sec_taper_str_build(pro_i, poly_i, pro_j, poly_j):
 	sec_taper_insert=pro_taper+poly_str_i+poly_str_j
 	return sec_taper_insert
 
-node_str=node_edit(node_x,2)# 
-sec_str=sec_str_build(sec_pro, sec_polygon)
-sec_taper_str=sec_taper_str_build(sec_pro, sec_polygon, sec_pro, sec_polygon)
-
 node_pos=28# data_template模板文件原始节点坐标首行位置
 sec_pos=425# data_template原始截面特性首行位置
 sec_pos_dgn=578# data_template原始DGN截面特性首行位置
 
+node_str=node_edit(node_x,2)# 建立节点坐标字符串列表
 data_template[node_pos:node_pos+len(node_str)]=node_str# 修改节点坐标，行号不变
 
-data_template=ins_list(sec_pos, sec_str, data_template)# 插入控制截面信息行，行号增加
-data_template=ins_list(sec_pos_dgn+len(sec_str), sec_taper_str, data_template)# 插入变截面信息行，行号增加
+for i in range(14):# 逐个建立控制截面
+	sec_str=sec_str_build(sec_pro, sec_poly)# 建立截面信息字符串列表
+	data_template=ins_list(sec_pos, sec_str, data_template)# 执行列表插入
+	sec_pos+=len(sec_str)+1# 行号增加，并跳过模板template名称行
+	sec_pos_dgn+=len(sec_str)# DGN行号增加
+for i in range(13):# 逐个建立变截面
+	sec_taper_str=sec_taper_str_build(sec_pro, sec_poly, sec_pro, sec_poly)
+	data_template=ins_list(sec_pos, sec_taper_str, data_template)
+	sec_pos+=len(sec_taper_str)+1
+	sec_pos_dgn+=len(sec_taper_str)
+
+for i in range(14):# 逐个建立控制截面DGN
+	sec_str=sec_str_build(sec_pro, sec_poly)# 建立截面信息字符串列表
+	data_template=ins_list(sec_pos_dgn, sec_str, data_template)# 执行列表插入
+	sec_pos_dgn+=len(sec_str)+1# DGN行号增加，并跳过模板template名称行
+for i in range(13):# 逐个建立变截面DGN
+	sec_taper_str=sec_taper_str_build(sec_pro, sec_poly, sec_pro, sec_poly)
+	data_template=ins_list(sec_pos_dgn, sec_taper_str, data_template)
+	sec_pos_dgn+=len(sec_taper_str)+1
+
+
 
 '''# 生成.mct模型文件'''
 project_name='test.mct'# 模型文件名，即midas软件的.mct文件
@@ -183,19 +199,19 @@ with open(project_name, 'w') as file_object:
 # 第8行：行首7个空格，特性数据4：首端HT, BT, T1, T2， 尾端HT, BT, T1, T2
 # 第9行：行首7个空格，特性数据5：首端YES, 0.42, 1.52, YES, , YES, , YES, , 0.25, YES, , YES, , YES, 尾端YES, 0.42, 1.52, YES, , YES, , YES, , 0.25, YES, , YES, , YES,
 # 第10行：行首7个空格，首端外框数据1：OPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第11行：行首7+6个空格，首端外框数据2：X5, Y5, X6, Y6, X7, Y7
-# 第12行：行首7+6个空格，首端外框数据3：X8, Y8, X9, Y9, X10, Y10
-# 第13行：行首7+6个空格，首端外框数据4：X11, Y11, X12, Y12
+# 第11行：行首7+6+5个空格，首端外框数据2：X5, Y5, X6, Y6, X7, Y7
+# 第12行：行首7+6+5个空格，首端外框数据3：X8, Y8, X9, Y9, X10, Y10
+# 第13行：行首7+6+5个空格，首端外框数据4：X11, Y11, X12, Y12
 # 第14行：行首7个空格，首端内框1小箱数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第15行：行首7+6个空格，首端内框1小箱数据：X5, Y5, X6, Y6, X7, Y7
+# 第15行：行首7+6+5个空格，首端内框1小箱数据：X5, Y5, X6, Y6, X7, Y7
 # 第16行：行首7个空格，首端内框2数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第17行：行首7+6个空格，首端内框2数据：X5, Y5, X6, Y6, X7, Y7
-# 第18行：行首7+6个空格，首端内框2数据：X8, Y8
+# 第17行：行首7+6+5个空格，首端内框2数据：X5, Y5, X6, Y6, X7, Y7
+# 第18行：行首7+6+5个空格，首端内框2数据：X8, Y8
 # 第19行：行首7个空格，首端内框3数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第20行：行首7+6个空格，首端内框3数据：X5, Y5, X6, Y6, X7, Y7
-# 第21行：行首7+6个空格，首端内框3数据：X8, Y8
+# 第20行：行首7+6+5个空格，首端内框3数据：X5, Y5, X6, Y6, X7, Y7
+# 第21行：行首7+6+5个空格，首端内框3数据：X8, Y8
 # 			》》》
 # 第-2-2行：行首7个空格，首端内框-1小箱数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第-1-1行：行首7+6个空格，首端内框-1小箱数据：X5, Y5, X6, Y6, X7, Y7
-# 第+1~n行：参照首端外框数据添加尾端外框数据OPOLY=NO
+# 第-1-1行：行首7+6+5个空格，首端内框-1小箱数据：X5, Y5, X6, Y6, X7, Y7
+# 第+1~n行：行首7+6+4个空格，参照首端外框数据添加尾端外框数据OPOLY=NO
 # 逐个定义第15~27变截面，共13个
