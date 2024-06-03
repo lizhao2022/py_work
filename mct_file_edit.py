@@ -4,20 +4,6 @@
 # ~ sec_pro[2]=[stress_point_location[0][0], stress_point_location[1][0], stress_point_location[2][0], stress_point_location[3][0], stress_point_location[0][1], stress_point_location[1][1], stress_point_location[2][1], stress_point_location[3][1]]
 # ~ sec_pro[3]=[HT, BT, T1, T2]
 # ~ sec_pro[4]=[ZZ1, ZZ3, tw]
-import json
-
-file_name='sec_pro.json'# 读取截面特性数据
-with open(file_name) as f_obj:
-	sec_pro=json.load(f_obj)
-file_name='sec_poly.json'# 读取截面线框数据
-with open(file_name) as f_obj:
-	sec_poly=json.load(f_obj)
-file_name='node_x.json'# 读取节点坐标数据
-with open(file_name) as f_obj:
-	node_x=json.load(f_obj)
-file_name='template.mct'# 读取模板文件
-with open(file_name, 'r') as file_template:
-	data_template=file_template.readlines()
 
 def ins_list(pos, lis_source,lis_base):
 	''' # 定义列表插入函数'''
@@ -27,10 +13,8 @@ def ins_list(pos, lis_source,lis_base):
 		lis_base.insert(j,lis_source[i])# 逐项插入
 	return lis_base# 返回修改后的列表
 
-def node_edit(node_x, beam_hight):
-	'''# 建立并修改节点坐标'''
-	node_z=[0 for i in range(len(node_x))]
-	node_z[-4:-1]=[-beam_hight]*4# 后4项为虚拟支座节点
+def node_str_build(node_x, node_z):
+	'''# 建立节点坐标字符串'''
 	node_adjust=list(range(len(node_x)))# 初始节点坐标字符串列表
 	for i in range(len(node_x)):# 逐项修改节点坐标字符串
 		node_adjust[i]='    '+str(i+1)+', {x}, 0, {z}\n'.format(x=node_x[i], z=node_z[i])
@@ -128,39 +112,43 @@ def sec_taper_str_build(pro_i, poly_i, pro_j, poly_j):
 	sec_taper_insert=pro_taper+poly_str_i+poly_str_j
 	return sec_taper_insert
 
-node_pos=28# data_template模板文件原始节点坐标首行位置
-sec_pos=425# data_template原始截面特性首行位置
-sec_pos_dgn=578# data_template原始DGN截面特性首行位置
+def data_template_edit_node(node_x, node_z, node_pos, data_template):
+	node_edit=node_str_build(node_x,node_z)# 建立节点坐标字符串列表
+	data_template[node_pos:node_pos+len(node_edit)]=node_edit# 修改节点坐标，行号不变
+	return data_template
 
-node_str=node_edit(node_x,2)# 建立节点坐标字符串列表
-data_template[node_pos:node_pos+len(node_str)]=node_str# 修改节点坐标，行号不变
+def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template):
+	row_add=0
+	for i in range(14):# 逐个建立控制截面
+		sec_str=sec_str_build(sec_pro_total[i], sec_poly_total[i])# 建立截面信息字符串列表
+		data_template=ins_list(sec_pos, sec_str, data_template)# 执行列表插入
+		sec_pos+=len(sec_str)+1# 行号增加，并跳过模板template名称行
+		sec_pos_dgn+=len(sec_str)# DGN行号增加
+		row_add+=len(sec_str)
+	for i in range(13):# 逐个建立变截面
+		sec_taper_str=sec_taper_str_build(sec_pro_total[i], sec_poly_total[i], sec_pro_total[i+1], sec_poly_total[i+1])
+		data_template=ins_list(sec_pos, sec_taper_str, data_template)
+		sec_pos+=len(sec_taper_str)+1
+		sec_pos_dgn+=len(sec_taper_str)
+		row_add+=len(sec_taper_str)
+	
+	for i in range(14):# 逐个建立控制截面DGN
+		sec_str=sec_str_build(sec_pro_total[i], sec_poly_total[i])# 建立截面信息字符串列表
+		data_template=ins_list(sec_pos_dgn, sec_str, data_template)# 执行列表插入
+		sec_pos_dgn+=len(sec_str)+1# DGN行号增加，并跳过模板template名称行
+		row_add+=len(sec_str)
+	for i in range(13):# 逐个建立变截面DGN
+		sec_taper_str=sec_taper_str_build(sec_pro_total[i], sec_poly_total[i], sec_pro_total[i+1], sec_poly_total[i+1])
+		data_template=ins_list(sec_pos_dgn, sec_taper_str, data_template)
+		sec_pos_dgn+=len(sec_taper_str)+1
+		row_add+=len(sec_taper_str)
+		
+	return data_template, row_add
 
-for i in range(14):# 逐个建立控制截面
-	sec_str=sec_str_build(sec_pro, sec_poly)# 建立截面信息字符串列表
-	data_template=ins_list(sec_pos, sec_str, data_template)# 执行列表插入
-	sec_pos+=len(sec_str)+1# 行号增加，并跳过模板template名称行
-	sec_pos_dgn+=len(sec_str)# DGN行号增加
-for i in range(13):# 逐个建立变截面
-	sec_taper_str=sec_taper_str_build(sec_pro, sec_poly, sec_pro, sec_poly)
-	data_template=ins_list(sec_pos, sec_taper_str, data_template)
-	sec_pos+=len(sec_taper_str)+1
-	sec_pos_dgn+=len(sec_taper_str)
-
-for i in range(14):# 逐个建立控制截面DGN
-	sec_str=sec_str_build(sec_pro, sec_poly)# 建立截面信息字符串列表
-	data_template=ins_list(sec_pos_dgn, sec_str, data_template)# 执行列表插入
-	sec_pos_dgn+=len(sec_str)+1# DGN行号增加，并跳过模板template名称行
-for i in range(13):# 逐个建立变截面DGN
-	sec_taper_str=sec_taper_str_build(sec_pro, sec_poly, sec_pro, sec_poly)
-	data_template=ins_list(sec_pos_dgn, sec_taper_str, data_template)
-	sec_pos_dgn+=len(sec_taper_str)+1
-
-
-
-'''# 生成.mct模型文件'''
-project_name='test.mct'# 模型文件名，即midas软件的.mct文件
-with open(project_name, 'w') as file_object:
-	file_object.writelines(data_template)
+# ~ '''# 生成.mct模型文件'''
+# ~ project_name='test.mct'# 生成模型文件，即midas软件的.mct文件
+# ~ with open(project_name, 'w') as file_object:
+	# ~ file_object.writelines(data_template)
 
 
 '''# 以3*30m变宽现浇箱梁为例分析.mct文件截面内容'''

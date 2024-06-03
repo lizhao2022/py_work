@@ -138,27 +138,30 @@ def get_sec_poly(polygon, web_quantity, cent_x, cent_y):# 定义函数标准化�
 		sec_poly_st[i]=polygon_array[polygon_ser[i]*2:polygon_ser[i+1]*2]# 逐行赋值线框坐标
 	return sec_poly_st
 
-bridge_width= 49.96# 桥面宽度
-web_quantity= 10# 腹板数量
-web_thickness= 0.8# 腹板厚度
+def section_build(bridge_width, web_quantity, web_thickness):# 定义函数，调用上述基本函数建立截面并整理输出sec_pro,sec_poly
+	polygon, hole_point, poly_num=get_polygon(bridge_width, web_quantity, web_thickness)# 生成截面数据
+	seg=get_segment(poly_num)# 生成截面边框点线顺序
+	tr_input= dict(vertices=polygon,segments=seg,holes=hole_point)# 整理triangle入参
+	tr_output= tr.triangulate(tr_input,'a0.04q30lpen',)# 执行triangle划分
+	A, Ixx, Iyy, cent_y, cent_x, Qy, Qx= get_property(tr_output['vertices'], tr_output['triangles'])# 根据triangle出参计算截面特性
+	sec_pro=get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, cent_x, Qy, Qx)# 整理输出截面特性
+	sec_poly=get_sec_poly(polygon, web_quantity, cent_x, cent_y)# 整理输出截面点坐标
+	return sec_pro, sec_poly
 
-polygon, hole_point, poly_num=get_polygon(bridge_width, web_quantity, web_thickness)# 生成截面数据
-seg=get_segment(poly_num)# 生成截面边框点线顺序
-tr_input= dict(vertices=polygon,segments=seg,holes=hole_point)# 整理triangle入参
-tr_output= tr.triangulate(tr_input,'a0.04q30lpen',)# 执行triangle划分
-A, Ixx, Iyy, cent_y, cent_x, Qy, Qx= get_property(tr_output['vertices'], tr_output['triangles'])# 根据triangle出参计算截面特性
-sec_pro=get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, cent_x, Qy, Qx)# 整理输出截面特性
-sec_poly=get_sec_poly(polygon, web_quantity, cent_x, cent_y)# 整理输出截面点坐标
+# ~ bridge_width=49.96
+# ~ web_quantity=10
+# ~ web_thickness=0.8
+# ~ sec_pro, sec_poly=section_build(bridge_width, web_quantity, web_thickness)
 
-# 输出截面特性
-filename='sec_pro.json'
-with open(filename, 'w') as f_obj:
-	json.dump(sec_pro, f_obj)
-# 输出截面坐标
-filename='sec_poly.json'
-with open(filename, 'w') as f_obj:
-	json.dump(sec_poly, f_obj)
-	
+# ~ # 输出截面特性
+# ~ filename='sec_pro.json'
+# ~ with open(filename, 'w') as f_obj:
+	# ~ json.dump(sec_pro, f_obj)
+# ~ # 输出截面坐标
+# ~ filename='sec_poly.json'
+# ~ with open(filename, 'w') as f_obj:
+	# ~ json.dump(sec_poly, f_obj)
+
 # ~ # 截面三角划分绘图
 # ~ tr.compare(plt, tr_input, tr_output)
 # ~ plt.show()

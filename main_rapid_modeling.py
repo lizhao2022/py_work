@@ -1,11 +1,39 @@
-span=[30, 30, 30]# ¿ç¾¶×éºÏ£¬3¿çÎªÀı
-crossbeam=[2, 3, 3, 2]# ºáÁº¿í¶È£¬3¿ç4Ö§µãÎªÀı
-pedestal_position=[0.6, 0.6]# ±ßÖ§×ù¾àÁº¶Ë£¬2±ßÖ§µã
-end_seams=[0.05, 0.05]# Áº¶Ë·ì¿í
-web_thickened_length=[7.4, 4.4, 4.4, 4.4, 4.4, 7.4]# ¸¹°å¼Óºñ¶Î³¤¶È£¬Ã¿¿ç2´¦£¬3¿ç6´¦
-web_thickening_length=[3.6, 3.6, 3.6, 3.6, 3.6, 3.6]# ¸¹°å±äºñ¶Î³¤¶È£¬Ã¿¿ç2´¦£¬3¿ç6´¦
-plate_thickening_length=[1.2, 1, 1, 1, 1, 1.2]# ¶¥µ×°å¼ÓÒ¸³¤¶È£¬Ã¿¿ç2´¦£¬3¿ç6´¦
+import section_build
+import node_partition
+import mct_file_edit
 
-bridge_width=[49, 49.5, 48, 47.5, 47, 46.5, 46, 45.5, 45, 44.5, 44, 43.5, 43, 42.5]# 14¸ö¿ØÖÆ½ØÃæ¿í¶È
-web_thickness=[0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8]# 14¸ö¿ØÖÆ½ØÃæ¸¹°åºñ¶È
-web_quantity=10# ¸¹°åÊıÁ¿
+file_name='template.mct'# è¯»å–æ¨¡æ¿æ–‡ä»¶
+with open(file_name, 'r') as file_template:
+	data_template=file_template.readlines()
+
+bridge_name='test'
+span=[30, 30, 30]# è·¨å¾„ç»„åˆï¼Œ3è·¨ä¸ºä¾‹
+crossbeam=[2, 3, 3, 2]# æ¨ªæ¢å®½åº¦ï¼Œ3è·¨4æ”¯ç‚¹ä¸ºä¾‹
+pedestal_position=[0.6, 0.6]# è¾¹æ”¯åº§è·æ¢ç«¯ï¼Œ2è¾¹æ”¯ç‚¹
+end_seams=[0.05, 0.05]# æ¢ç«¯ç¼å®½
+web_thickened_length=[7.4, 4.4, 4.4, 4.4, 4.4, 7.4]# è…¹æ¿åŠ åšæ®µé•¿åº¦ï¼Œæ¯è·¨2å¤„ï¼Œ3è·¨6å¤„
+web_thickening_length=[3.6, 3.6, 3.6, 3.6, 3.6, 3.6]# è…¹æ¿å˜åšæ®µé•¿åº¦ï¼Œæ¯è·¨2å¤„ï¼Œ3è·¨6å¤„
+plate_thickening_length=[1.2, 1, 1, 1, 1, 1.2]# é¡¶åº•æ¿åŠ è…‹é•¿åº¦ï¼Œæ¯è·¨2å¤„ï¼Œ3è·¨6å¤„
+
+bridge_width=[49.96, 49.488, 49.248, 48.712, 48.391, 47.2, 46.836, 45.726, 45.363, 44.172, 45.808, 43.056, 42.693, 41.744]# 14ä¸ªæ§åˆ¶æˆªé¢å®½åº¦
+web_thickness=[0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8]# 14ä¸ªæ§åˆ¶æˆªé¢è…¹æ¿åšåº¦
+web_quantity=10# è…¹æ¿æ•°é‡
+
+node_pos=28# data_templateæ¨¡æ¿æ–‡ä»¶åŸå§‹èŠ‚ç‚¹åæ ‡é¦–è¡Œä½ç½®
+sec_pos=425# data_templateåŸå§‹æˆªé¢ç‰¹æ€§é¦–è¡Œä½ç½®
+sec_pos_dgn=578# data_templateåŸå§‹DGNæˆªé¢ç‰¹æ€§é¦–è¡Œä½ç½®
+
+node_x, node_z=node_partition.node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length)
+data_template=mct_file_edit.data_template_edit_node(node_x, node_z, node_pos, data_template)
+
+sec_pro_total=[[]]*14
+sec_poly_total=[[]]*14
+for i in range(14):
+	sec_pro_total[i], sec_poly_total[i]=section_build.section_build(bridge_width[i], web_quantity, web_thickness[i])
+data_templatet, row_add=mct_file_edit.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)
+
+
+
+project_name=bridge_name+'.mct'# ç”Ÿæˆæ¨¡å‹æ–‡ä»¶ï¼Œå³midasè½¯ä»¶çš„.mctæ–‡ä»¶
+with open(project_name, 'w') as file_object:
+	file_object.writelines(data_template)
