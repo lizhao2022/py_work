@@ -112,6 +112,15 @@ def sec_taper_str_build(pro_i, poly_i, pro_j, poly_j):
 	sec_taper_insert=pro_taper+poly_str_i+poly_str_j
 	return sec_taper_insert
 
+def sec_rebar_str_build(web_quantity, stirrups_dia):
+	'''# 建立截面配筋信息字符串'''
+	stirrups_area=web_quantity*stirrups_dia*stirrups_dia/4*3.1415926/1000/1000*2# 双肢面积
+	rebar_str=['        NO, , , , NO, , , , , , NO, , , , YES, 0.1, '+str(stirrups_area*2)+', NO, ,\n']*13
+	rebar_str[2]='        NO, , , , NO, , , , , , NO, , , , YES, 0.15, '+str(stirrups_area)+', NO, ,\n'
+	rebar_str[6]='        NO, , , , NO, , , , , , NO, , , , YES, 0.15, '+str(stirrups_area)+', NO, ,\n'
+	rebar_str[10]='        NO, , , , NO, , , , , , NO, , , , YES, 0.15, '+str(stirrups_area)+', NO, ,\n'
+	return rebar_str
+
 def data_template_edit_node(node_x, node_z, node_pos, data_template):
 	node_edit=node_str_build(node_x,node_z)# 建立节点坐标字符串列表
 	data_template[node_pos:node_pos+len(node_edit)]=node_edit# 修改节点坐标，行号不变
@@ -144,6 +153,13 @@ def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_d
 		row_add+=len(sec_taper_str)
 		
 	return data_template, row_add
+
+def data_template_edit_rebar(rebar_str, pos_rebar, data):
+	for i in range(13):
+		data[pos_rebar]=rebar_str[i]
+		pos_rebar+=2
+	return data
+
 
 # ~ '''# 生成.mct模型文件'''
 # ~ project_name='test.mct'# 生成模型文件，即midas软件的.mct文件

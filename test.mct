@@ -3763,31 +3763,31 @@
 ; [SR]  : bSTIR, PITCH, AW
 ; [ES]  : bES, CT, bIFC
    SECT=19, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=20, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=21, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.15, 0.003078, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.15, 0.0030787607480000003, NO, ,
    SECT=22, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=23, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=24, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=25, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.15, 0.003078, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.15, 0.0030787607480000003, NO, ,
    SECT=26, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=27, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=28, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=29, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.15, 0.003078, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.15, 0.0030787607480000003, NO, ,
    SECT=30, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
    SECT=31, YES, NO, NO
-        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006156, NO, , 
+        NO, , , , NO, , , , , , NO, , , , YES, 0.1, 0.006157521496000001, NO, ,
 
 *TS-GROUP    ; Tapered Section Group
 ; NAME, ELEM_LIST, ZVAR, ZEXP, ZFROM, ZDIST, YVAR, YEXP, YFROM, YDIST, iSCM
