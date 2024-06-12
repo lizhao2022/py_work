@@ -121,6 +121,16 @@ def sec_rebar_str_build(web_quantity, stirrups_dia):
 	rebar_str[10]='        NO, , , , NO, , , , , , NO, , , , YES, 0.15, '+str(stirrups_area)+', NO, ,\n'
 	return rebar_str
 
+def steel_strand_str(x, y, r, count):
+	'''# 建立钢束形状信息字符串'''
+	steel_str=[[]]*(3+len(x))
+	steel_str[0]='        , AUTO1, , , YES, '+str(count)+', 0, 0\n'
+	steel_str[1]='        STRAIGHT, 0, 0, 0, X, 0, 0\n'
+	steel_str[2]='        0, YES, Y, 0\n'
+	for i in range(len(x)):
+		steel_str[i+3]='        '+str(x[i])+', 0, '+str(y[i])+', NO, 0, 0, '+str(r[i])+'\n'
+	return steel_str
+
 def data_template_edit_node(node_x, node_z, node_pos, data_template):
 	node_edit=node_str_build(node_x,node_z)# 建立节点坐标字符串列表
 	data_template[node_pos:node_pos+len(node_edit)]=node_edit# 修改节点坐标，行号不变
@@ -160,62 +170,15 @@ def data_template_edit_rebar(rebar_str, pos_rebar, data):
 		pos_rebar+=2
 	return data
 
+def data_template_edit_steel(steel_str, steel_pos, row_add, data):
+	str_pos=steel_pos+row_add
+	for i in range(len(steel_str)):
+		data=ins_list(str_pos, steel_str[i], data)
+		str_pos+=len(steel_str[i])+1
+		row_add+=len(steel_str[i])
+	return data, row_add
 
 # ~ '''# 生成.mct模型文件'''
 # ~ project_name='test.mct'# 生成模型文件，即midas软件的.mct文件
 # ~ with open(project_name, 'w') as file_object:
 	# ~ file_object.writelines(data_template)
-
-
-'''# 以3*30m变宽现浇箱梁为例分析.mct文件截面内容'''
-# 定义控制截面：第425行开始
-# 第1行：行首1个空格，名称数据：SECT=   1（编号）, PSC（类型）       , D0#0（名称）              , CT, 0, 0, 0, 0, 0, 0, YES, NO, VALU, NO, NO, 
-# 第2行：行首7个空格，特性数据1：AREA, ASy, ASz, Ixx, Iyy, Izz
-# 第3行：行首7个空格，特性数据2：Cyp, Cym, Czp, Czm, Qyb, Qzb, PERI_OUT, PERI_IN, Cy, Cz
-# 第4行：行首7个空格，特性数据3：Y1, Y2, Y3, Y4, Z1, Z2, Z3, Z4
-# 第5行：行首7个空格，特性数据4：HT, BT, T1, T2
-# 第6行：行首7个空格，特性数据5：YES, 0.42, 1.52, YES, , YES, , YES, , 0.25, YES, , YES, , YES,
-# 第7行：行首7个空格，外框数据1：OPOLY=X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第8行：行首7+6个空格，外框数据2：X5, Y5, X6, Y6, X7, Y7
-# 第9行：行首7+6个空格，外框数据3：X8, Y8, X9, Y9, X10, Y10
-# 第10行：行首7+6个空格，外框数据4：X11, Y11, X12, Y12
-# 第11行：行首7个空格，内框1小箱数据：IPOLY=X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第12行：行首7+6个空格，内框1小箱数据：X5, Y5, X6, Y6, X7, Y7
-# 第13行：行首7个空格，内框2数据：IPOLY=X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第14行：行首7+6个空格，内框2数据：X5, Y5, X6, Y6, X7, Y7
-# 第15行：行首7+6个空格，内框2数据：X8, Y8
-# 第16行：行首7个空格，内框3数据：IPOLY=X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第17行：行首7+6个空格，内框3数据：X5, Y5, X6, Y6, X7, Y7
-# 第18行：行首7+6个空格，内框3数据：X8, Y8
-# 			》》》
-# 第-2行：行首7个空格，内框-1小箱数据：IPOLY=X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第-1行：行首7+6个空格，内框-1小箱数据：X5, Y5, X6, Y6, X7, Y7
-# 逐个定义第1~14控制截面，共14个
-# 			》》》
-# 定义变截面：
-# 第1行：行首1个空格，名称数据：SECT=   15（编号）, TAPERED（类型）       , D0#0（名称）           , CT, 0, 0, 0, 0, 0, 0, 0, 0, YES, NO, VALU, 1, 1, NO, NO, 
-# 第2行：行首7个空格，首端特性数据1：AREA, ASy, ASz, Ixx, Iyy, Izz
-# 第3行：行首7个空格，首端特性数据2：Cyp, Cym, Czp, Czm, Qyb, Qzb, PERI_OUT, PERI_IN, Cy, Cz
-# 第4行：行首7个空格，首端特性数据3：Y1, Y2, Y3, Y4, Z1, Z2, Z3, Z4
-# 第5行：行首7个空格，尾端特性数据1：AREA, ASy, ASz, Ixx, Iyy, Izz
-# 第6行：行首7个空格，尾端特性数据2：Cyp, Cym, Czp, Czm, Qyb, Qzb, PERI_OUT, PERI_IN, Cy, Cz
-# 第7行：行首7个空格，尾端特性数据3：Y1, Y2, Y3, Y4, Z1, Z2, Z3, Z4
-# 第8行：行首7个空格，特性数据4：首端HT, BT, T1, T2， 尾端HT, BT, T1, T2
-# 第9行：行首7个空格，特性数据5：首端YES, 0.42, 1.52, YES, , YES, , YES, , 0.25, YES, , YES, , YES, 尾端YES, 0.42, 1.52, YES, , YES, , YES, , 0.25, YES, , YES, , YES,
-# 第10行：行首7个空格，首端外框数据1：OPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第11行：行首7+6+5个空格，首端外框数据2：X5, Y5, X6, Y6, X7, Y7
-# 第12行：行首7+6+5个空格，首端外框数据3：X8, Y8, X9, Y9, X10, Y10
-# 第13行：行首7+6+5个空格，首端外框数据4：X11, Y11, X12, Y12
-# 第14行：行首7个空格，首端内框1小箱数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第15行：行首7+6+5个空格，首端内框1小箱数据：X5, Y5, X6, Y6, X7, Y7
-# 第16行：行首7个空格，首端内框2数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第17行：行首7+6+5个空格，首端内框2数据：X5, Y5, X6, Y6, X7, Y7
-# 第18行：行首7+6+5个空格，首端内框2数据：X8, Y8
-# 第19行：行首7个空格，首端内框3数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第20行：行首7+6+5个空格，首端内框3数据：X5, Y5, X6, Y6, X7, Y7
-# 第21行：行首7+6+5个空格，首端内框3数据：X8, Y8
-# 			》》》
-# 第-2-2行：行首7个空格，首端内框-1小箱数据：IPOLY=YES, X1, Y1, X2, Y2, X3, Y3, X4, Y4
-# 第-1-1行：行首7+6+5个空格，首端内框-1小箱数据：X5, Y5, X6, Y6, X7, Y7
-# 第+1~n行：行首7+6+4个空格，参照首端外框数据添加尾端外框数据OPOLY=NO
-# 逐个定义第15~27变截面，共13个

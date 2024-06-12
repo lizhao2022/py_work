@@ -1,6 +1,7 @@
-import section_build
-import node_partition
-import mct_file_edit
+import section_build as sec
+import node_partition as node
+import steel_strand_build as steel
+import mct_file_edit as mct
 
 file_name='template.mct'# 读取模板文件
 with open(file_name, 'r') as file_template:
@@ -27,7 +28,7 @@ node_pos=28# data_template模板文件节点坐标首行位置
 sec_pos=425# data_template模板文件截面特性首行位置
 sec_pos_dgn=578# data_template模板文件GN截面特性首行位置
 sec_pos_rebar=617# data_template模板文件截面钢筋首行位置
-steel_strand_arrangement_pos=682# data_template模板文件钢绞线束形布置首行位置
+steel_strand_pos=682# data_template模板文件钢绞线束形布置首行位置
 stld_phase2_pave=748# data_template模板文件静力荷载工况：二期（铺装）梁单元荷载首行位置
 stld_phase2_bumperwall=840# data_template模板文件静力荷载工况：二期（防撞墙等）梁单元荷载首行位置
 stld_crossbeam=952# data_template模板文件静力荷载工况：横梁荷载梁单元荷载首行位置
@@ -36,18 +37,23 @@ stld_temp1=1008# data_template模板文件静力荷载工况：温度梯度（�
 # 样板信息结束
 
 # 修改节点
-node_x, node_z=node_partition.node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length)
-data_template=mct_file_edit.data_template_edit_node(node_x, node_z, node_pos, data_template)
+node_x, node_z=node.node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length)
+data_template=mct.data_template_edit_node(node_x, node_z, node_pos, data_template)
 # 修改箍筋
-rebar_str=mct_file_edit.sec_rebar_str_build(web_quantity, stirrups_diameter)
-data_template=mct_file_edit.data_template_edit_rebar(rebar_str, sec_pos_rebar, data_template)
+rebar_str=mct.sec_rebar_str_build(web_quantity, stirrups_diameter)
+data_template=mct.data_template_edit_rebar(rebar_str, sec_pos_rebar, data_template)
 # 修改截面
 sec_pro_total=[[]]*14
 sec_poly_total=[[]]*14
 for i in range(14):
-	sec_pro_total[i], sec_poly_total[i]=section_build.section_build(bridge_width[i], web_quantity, web_thickness[i])
-data_template, row_add=mct_file_edit.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)
+	sec_pro_total[i], sec_poly_total[i]=sec.section_build(bridge_width[i], web_quantity, web_thickness[i])
+data_template, row_add=mct.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)
 # 修改钢束
+steel_x, steel_y, steel_r, steel_count=steel.steel_strand_build(span, end_seams, web_quantity)
+steel_str=[[]]*len(steel_x)
+for i in range(len(steel_x)):
+	steel_str[i]=mct.steel_strand_str(steel_x[i], steel_y[i], steel_r[i], steel_count[i])
+data_template, row_add=mct.data_template_edit_steel(steel_str, steel_strand_pos, row_add, data_template)
 # 修改二期铺装
 # 修改二期防撞墙等
 # 修改横梁荷载

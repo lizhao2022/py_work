@@ -1,7 +1,8 @@
-span=[30, 30, 30]# ¿ç¾¶×éºÏ£¬3¿çÎªÀı
-web_quantity=10# ¸¹°åÊıÁ¿
-end_seams=[0.05, 0.05]# Áº¶Ë·ì¿í
-def steel_strand_build(span, end_seams, web:
+# ~ span=[30, 30, 30]# ¿ç¾¶×éºÏ£¬3¿çÎªÀı
+# ~ web_quantity=10# ¸¹°åÊıÁ¿
+# ~ end_seams=[0.05, 0.05]# Áº¶Ë·ì¿í
+
+def steel_strand_build(span, end_seams, web):
 	span1=span[0]-end_seams[0]
 	span2=span1+span[1]
 	span_end=span2+span[2]-end_seams[1]
@@ -36,21 +37,13 @@ def steel_strand_build(span, end_seams, web:
 	t4a_y=[-0.18, -0.18]
 	steel_y=[d1_y, d2_y, d2a_y, d3_y, d3a_y, f1_y, f2_y, f3_y, t1_y, t2_y, t3_y, t4_y, t4a_y]
 	
-	d1_r=[6]*12
-	d1_r[0]=0
-	d1_r[-1]=0
+	d1_r=[0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 0]
 	d2_r=[0, 6, 6, 0]
 	d2a_r=[0, 6, 6, 0]
 	d3_r=[0, 6, 6, 0]
 	d3a_r=[0, 6, 6, 0]
-	f1_r=[10]*12
-	f1_r[0]=0
-	f1_r[1]=8
-	f1_r[-2]=8
-	f1_r[-1]=0
-	f2_r=[10]*12
-	f2_r[0]=0
-	f2_r[-1]=0
+	f1_r=[0, 8, 10, 10, 10, 10, 10, 10, 10, 10, 8, 0]
+	f2_r=[0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 0]
 	f3_r=[0, 10, 10, 8, 8, 10, 10, 8, 8, 10, 10, 0]
 	t1_r=[0, 6, 6, 0]
 	t2_r=[0, 6, 6, 6, 0]
@@ -61,12 +54,3 @@ def steel_strand_build(span, end_seams, web:
 	
 	steel_count=[2*web-2, 2*web-2, 2*web-2, 2*web-2, 2*web-2, 2*web, 2*web, 2*web, 4*web-6, 2*web, 2*web, 4, 2]
 	return steel_x, steel_y, steel_r, steel_count
-
-def steel_strand_str(count, x, y, r):
-	steel_str=[[]]*(3+len(x))
-	steel_str[0]='        , AUTO1, , , YES, '+str(count)+', 0, 0\n'
-	steel_str[1]='        STRAIGHT, 0, 0, 0, X, 0, 0\n'
-	steel_str[2]='        0, YES, Y, 0\n'
-	for i in range(len(x))
-		steel_str[i+3]='        '+str(x[i])+', 0, '+str(y[i])+', NO, 0, 0, '+str(r[i])+'\n'
-	return steel_str
