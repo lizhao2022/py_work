@@ -131,10 +131,12 @@ def steel_strand_str(x, y, r, count):
 		steel_str[i+3]='        '+str(x[i])+', 0, '+str(y[i])+', NO, 0, 0, '+str(r[i])+'\n'
 	return steel_str
 
-def data_template_edit_node(node_x, node_z, node_pos, data_template):
-	node_edit=node_str_build(node_x,node_z)# 建立节点坐标字符串列表
-	data_template[node_pos:node_pos+len(node_edit)]=node_edit# 修改节点坐标，行号不变
-	return data_template
+def stld_str(st_load):
+	'''# 建立二期荷载信息字符串'''
+	st_str=[[]]*(len(st_load)-1)
+	for i in range(len(st_str)):
+		st_str[i]='    '+str(i+1)+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(st_load[i])+', 1, '+str(st_load[i+1])+', 0, 0, 0, 0, 二期, NO, 0, 0, NO,\n' 
+	return st_str
 
 def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template):
 	row_add=0

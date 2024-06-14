@@ -4014,87 +4014,87 @@ D3#-1~0, 73to81,  LINEAR, , , ,  LINEAR, , , , 0
 ; [VALUE]       : D1, P1, D2, P2, D3, P3, D4, P4
 ; [ECCEN]       : bECCEN, ECCDIR, I-END, J-END, bJ-END
 ; [ADDITIONAL]  : bADDITIONAL, ADDITIONAL_I-END, ADDITIONAL_J-END, bADDITIONAL_J-END
-     1, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -215.4, 1, -215.222, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     2, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -215.222, 1, -214.806, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     3, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -214.806, 1, -214.449, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     4, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -214.449, 1, -214.142, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     5, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -214.142, 1, -213.835, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     6, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -213.835, 1, -213.528, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     7, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -213.528, 1, -213.221, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     8, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -213.221, 1, -212.914, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     9, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -212.914, 1, -212.607, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    10, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -212.607, 1, -212.25, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    11, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -212.25, 1, -211.893, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    12, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -211.893, 1, -211.537, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    13, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -211.537, 1, -211.221, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    14, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -211.221, 1, -210.904, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    15, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -210.904, 1, -210.588, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    16, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -210.588, 1, -210.272, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    17, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -210.272, 1, -209.956, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    18, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -209.956, 1, -209.639, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    19, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -209.639, 1, -209.323, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    20, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -209.323, 1, -208.966, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    21, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -208.966, 1, -208.61, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    22, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -208.61, 1, -208.253, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    23, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -208.253, 1, -207.916, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    24, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -207.916, 1, -207.58, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    25, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -207.58, 1, -207.243, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    26, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -207.243, 1, -206.946, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    27, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -206.946, 1, -206.5, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    28, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -206.5, 1, -205.82, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    29, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -205.82, 1, -205.367, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    30, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -205.367, 1, -204.853, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    31, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -204.853, 1, -204.339, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    32, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -204.339, 1, -203.825, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    33, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -203.825, 1, -203.281, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    34, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -203.281, 1, -202.737, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    35, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -202.737, 1, -202.193, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    36, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -202.193, 1, -201.74, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    37, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -201.74, 1, -201.287, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    38, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -201.287, 1, -200.833, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    39, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -200.833, 1, -200.38, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    40, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -200.38, 1, -199.927, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    41, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -199.927, 1, -199.473, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    42, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -199.473, 1, -199.02, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    43, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -199.02, 1, -198.567, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    44, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -198.567, 1, -198.113, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    45, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -198.113, 1, -197.66, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    46, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -197.66, 1, -197.207, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    47, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -197.207, 1, -196.663, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    48, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -196.663, 1, -196.119, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    49, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -196.119, 1, -195.575, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    50, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -195.575, 1, -195.061, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    51, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -195.061, 1, -194.547, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    52, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -194.547, 1, -194.033, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    53, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -194.033, 1, -193.58, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    54, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -193.58, 1, -192.9, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    55, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -192.9, 1, -192.219, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    56, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -192.219, 1, -191.765, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    57, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -191.765, 1, -191.25, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    58, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -191.25, 1, -190.736, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    59, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -190.736, 1, -190.221, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    60, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -190.221, 1, -189.676, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    61, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -189.676, 1, -189.131, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    62, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -189.131, 1, -188.586, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    63, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -188.586, 1, -188.103, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    64, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -188.103, 1, -187.62, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    65, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -187.62, 1, -187.136, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    66, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -187.136, 1, -186.653, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    67, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -186.653, 1, -186.17, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    68, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -186.17, 1, -185.686, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    69, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -185.686, 1, -185.203, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    70, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -185.203, 1, -184.658, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    71, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -184.658, 1, -184.113, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    72, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -184.113, 1, -183.568, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    73, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -183.568, 1, -183.099, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    74, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -183.099, 1, -182.63, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    75, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -182.63, 1, -182.161, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    76, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -182.161, 1, -181.692, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    77, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -181.692, 1, -181.222, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    78, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -181.222, 1, -180.753, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    79, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -180.753, 1, -180.208, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    80, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -180.208, 1, -179.572, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    81, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -179.572, 1, -179.3, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
+    1, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -218.13519999999997, 1, -217.99902297872336, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    2, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -217.99902297872336, 1, -217.68127659574463, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    3, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -217.68127659574463, 1, -217.40892255319145, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    4, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -217.40892255319145, 1, -217.17439546099288, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    5, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -217.17439546099288, 1, -216.9398683687943, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    6, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -216.9398683687943, 1, -216.7053412765957, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    7, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -216.7053412765957, 1, -216.4708141843971, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    8, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -216.4708141843971, 1, -216.23628709219855, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    9, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -216.23628709219855, 1, -216.00175999999996, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    10, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -216.00175999999996, 1, -215.64015999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    11, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -215.64015999999995, 1, -215.27855999999997, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    12, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -215.27855999999997, 1, -214.91695999999996, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    13, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -214.91695999999996, 1, -214.5708571428571, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    14, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -214.5708571428571, 1, -214.22475428571425, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    15, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -214.22475428571425, 1, -213.8786514285714, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    16, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -213.8786514285714, 1, -213.53254857142855, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    17, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -213.53254857142855, 1, -213.1864457142857, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    18, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -213.1864457142857, 1, -212.84034285714284, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    19, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -212.84034285714284, 1, -212.49424, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    20, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -212.49424, 1, -212.01059999999998, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    21, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -212.01059999999998, 1, -211.52695999999997, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    22, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -211.52695999999997, 1, -211.04331999999997, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    23, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -211.04331999999997, 1, -210.52627796610167, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    24, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -210.52627796610167, 1, -210.00923593220335, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    25, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -210.00923593220335, 1, -209.49219389830506, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    26, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -209.49219389830506, 1, -209.03598033898302, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    27, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -209.03598033898302, 1, -208.35165999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    28, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -208.35165999999995, 1, -207.6673396610169, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    29, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -207.6673396610169, 1, -207.21112610169487, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    30, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -207.21112610169487, 1, -206.69408406779658, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    31, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -206.69408406779658, 1, -206.17704203389826, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    32, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -206.17704203389826, 1, -205.65999999999997, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    33, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -205.65999999999997, 1, -205.1115733333333, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    34, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -205.1115733333333, 1, -204.56314666666663, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    35, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -204.56314666666663, 1, -204.01471999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    36, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -204.01471999999995, 1, -203.55861090909087, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    37, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -203.55861090909087, 1, -203.10250181818176, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    38, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -203.10250181818176, 1, -202.64639272727268, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    39, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -202.64639272727268, 1, -202.1902836363636, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    40, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -202.1902836363636, 1, -201.7341745454545, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    41, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -201.7341745454545, 1, -201.2780654545454, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    42, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -201.2780654545454, 1, -200.82195636363633, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    43, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -200.82195636363633, 1, -200.36584727272722, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    44, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -200.36584727272722, 1, -199.90973818181814, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    45, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -199.90973818181814, 1, -199.45362909090903, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    46, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -199.45362909090903, 1, -198.99751999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    47, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -198.99751999999995, 1, -198.45059999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    48, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -198.45059999999995, 1, -197.90367999999998, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    49, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -197.90367999999998, 1, -197.35675999999998, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    50, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -197.35675999999998, 1, -196.83971796610166, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    51, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -196.83971796610166, 1, -196.32267593220337, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    52, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -196.32267593220337, 1, -195.80563389830508, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    53, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -195.80563389830508, 1, -195.34942033898304, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    54, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -195.34942033898304, 1, -194.66509999999997, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    55, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -194.66509999999997, 1, -193.98077966101692, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    56, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -193.98077966101692, 1, -193.5245661016949, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    57, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -193.5245661016949, 1, -193.00752406779657, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    58, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -193.00752406779657, 1, -192.49048203389827, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    59, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -192.49048203389827, 1, -191.97343999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    60, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -191.97343999999995, 1, -194.43834666666663, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    61, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -194.43834666666663, 1, -196.90325333333328, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    62, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -196.90325333333328, 1, -199.36815999999996, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    63, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -199.36815999999996, 1, -197.59115428571423, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    64, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -197.59115428571423, 1, -195.81414857142855, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    65, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -195.81414857142855, 1, -194.0371428571428, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    66, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -194.0371428571428, 1, -192.2601371428571, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    67, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -192.2601371428571, 1, -190.48313142857137, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    68, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -190.48313142857137, 1, -188.7061257142857, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    69, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -188.7061257142857, 1, -186.92911999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    70, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -186.92911999999995, 1, -186.38219999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    71, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -186.38219999999995, 1, -185.83527999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    72, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -185.83527999999995, 1, -185.28835999999995, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    73, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -185.28835999999995, 1, -184.81682141843967, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    74, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -184.81682141843967, 1, -184.3452828368794, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    75, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -184.3452828368794, 1, -183.8737442553191, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    76, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -183.8737442553191, 1, -183.40220567375883, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    77, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -183.40220567375883, 1, -182.93066709219855, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    78, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -182.93066709219855, 1, -182.45912851063827, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    79, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -182.45912851063827, 1, -181.9115353191489, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    80, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -181.9115353191489, 1, -181.27267659574463, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    81, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -181.27267659574463, 1, -180.99887999999996, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
 
 ; End of data for load case [二期（铺装）] -------------------------
 
@@ -4106,87 +4106,87 @@ D3#-1~0, 73to81,  LINEAR, , , ,  LINEAR, , , , 0
 ; [VALUE]       : D1, P1, D2, P2, D3, P3, D4, P4
 ; [ECCEN]       : bECCEN, ECCDIR, I-END, J-END, bJ-END
 ; [ADDITIONAL]  : bADDITIONAL, ADDITIONAL_I-END, ADDITIONAL_J-END, bADDITIONAL_J-END
-     1, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -46.2, 1, -46.0758, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     2, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -46.0758, 1, -45.786, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     3, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -45.786, 1, -45.5376, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     4, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -45.5376, 1, -45.3237, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     5, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -45.3237, 1, -45.1097, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     6, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -45.1097, 1, -44.8958, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     7, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -44.8958, 1, -44.6819, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     8, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -44.6819, 1, -44.468, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-     9, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -44.468, 1, -44.2541, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    10, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -44.2541, 1, -44.0057, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    11, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -44.0057, 1, -43.7573, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    12, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -43.7573, 1, -43.5088, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    13, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -43.5088, 1, -43.2885, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    14, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -43.2885, 1, -43.0682, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    15, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -43.0682, 1, -42.8479, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    16, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -42.8479, 1, -42.6276, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    17, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -42.6276, 1, -42.4073, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    18, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -42.4073, 1, -42.1869, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    19, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -42.1869, 1, -41.9666, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    20, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -41.9666, 1, -41.7182, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    21, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -41.7182, 1, -41.4698, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    22, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -41.4698, 1, -41.2214, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    23, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -41.2214, 1, -40.9868, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    24, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40.9868, 1, -40.7521, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    25, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40.7521, 1, -40.5175, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    26, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40.5175, 1, -40.3105, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    27, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40.3105, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    28, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    29, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    30, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    31, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    32, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    33, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    34, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    35, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    36, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    37, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    38, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    39, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    40, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    41, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    42, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    43, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    44, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    45, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    46, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    47, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    48, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    49, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    50, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    51, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    52, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    53, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    54, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    55, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    56, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    57, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    58, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    59, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    60, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    61, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    62, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    63, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    64, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    65, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    66, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    67, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    68, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    69, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    70, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    71, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    72, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    73, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    74, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    75, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    76, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    77, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    78, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    79, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    80, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
-    81, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -40, 1, -40, 0, 0, 0, 0, 二期, NO, 0, 0, NO, 
+    1, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    2, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    3, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    4, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    5, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    6, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    7, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    8, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    9, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    10, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    11, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    12, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    13, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    14, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    15, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    16, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    17, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    18, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    19, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    20, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    21, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    22, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    23, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    24, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    25, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    26, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    27, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    28, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    29, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    30, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    31, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    32, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    33, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    34, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    35, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    36, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    37, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    38, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    39, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    40, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    41, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    42, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    43, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    44, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    45, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    46, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    47, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    48, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    49, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    50, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    51, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    52, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    53, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    54, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    55, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    56, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    57, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    58, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    59, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    60, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    61, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    62, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    63, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    64, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    65, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    66, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    67, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    68, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    69, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    70, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    71, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    72, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    73, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    74, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    75, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    76, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    77, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    78, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    79, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    80, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
+    81, LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, -35.0, 1, -35.0, 0, 0, 0, 0, 二期, NO, 0, 0, NO,
 
 ; End of data for load case [二期（防撞护栏+声屏障）] -------------------------
 
@@ -4263,6 +4263,326 @@ D3#-1~0, 73to81,  LINEAR, , , ,  LINEAR, , , , 0
     ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
     ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
     ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  2, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  3, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  4, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  5, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  6, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  7, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  8, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  9, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  10, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  11, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  12, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  13, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  14, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  15, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  16, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  17, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  18, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  19, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  20, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  21, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  22, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  23, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  24, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  25, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  26, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  27, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  50.02,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  28, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.795,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  29, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  30, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  31, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  32, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  33, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  34, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  35, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  36, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  37, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  38, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  39, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  40, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  41, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  42, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  43, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  44, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  45, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  46, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  47, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  48, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  49, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  50, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  51, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  52, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  53, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  54, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  47.8,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  55, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.767,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  56, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  57, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  58, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  59, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  60, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  61, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  62, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  63, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  64, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  65, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  66, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  67, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  68, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  69, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  70, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  71, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  72, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  73, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  74, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  75, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  76, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  77, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  78, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  79, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  80, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
+  81, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, 14,  0.1, 5.5
+    ELEMENT,  0, 0,  44.77,  0.1, 5.5,  0.28, 2.2
+    ELEMENT,  0, 0,  29,  0.28, 2.2,  0.4, 0
 
 ; End of data for load case [温度梯度（升温）] -------------------------
 
@@ -4277,6 +4597,326 @@ D3#-1~0, 73to81,  LINEAR, , , ,  LINEAR, , , , 0
   1, LZ, Top, 3, , NO
     ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
     ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  2, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  3, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  4, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  5, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  6, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  7, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  8, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  9, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  10, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  11, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  12, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  13, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  14, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  15, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  16, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  17, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  18, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  19, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  20, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  21, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  22, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  23, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  24, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  25, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  26, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  27, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  50.02,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  50.02,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  28, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  29, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  30, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  31, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  32, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  33, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  34, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  35, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  36, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  37, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  38, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  39, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  40, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  41, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  42, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  43, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  44, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  45, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  46, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  47, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  48, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  49, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  50, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  51, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  52, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  53, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  54, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  47.8,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  47.8,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  55, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  56, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  57, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  58, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  59, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  60, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  61, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  62, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  63, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  64, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  65, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  66, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  67, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  68, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  69, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  70, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  71, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  72, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  73, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  74, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  75, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  76, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  77, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  78, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  79, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  80, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
+    ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
+  81, LZ, Top, 3, , NO
+    ELEMENT,  0, 0,  44.77,  0, -7,  0.1, -2.75
+    ELEMENT,  0, 0,  44.77,  0.1, -2.75,  0.28, -1.1
     ELEMENT,  0, 0,  29,  0.28, -1.1,  0.4, 0
 
 ; End of data for load case [温度梯度（降温）] -------------------------
