@@ -138,6 +138,42 @@ def stld_str(st_load):
 		st_str[i]='    '+str(i+1)+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(st_load[i])+', 1, '+str(st_load[i+1])+', 0, 0, 0, 0, 二期, NO, 0, 0, NO,\n' 
 	return st_str
 
+def stld_crossbeam_str(crossbeam_load, plate_load):
+	'''# 建立横梁荷载信息字符串'''
+	a=crossbeam_load
+	b=plate_load
+	ele=[1, 2, 3, 26, 27, 28, 29, 53, 54, 55, 56, 79, 80, 81]
+	crossbeam_str=[[]]*(len(ele))
+	crossbeam_str[0]='    '+str(ele[0])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[0])+', 1, '+str(a[0])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[1]='    '+str(ele[1])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[0])+', 1, '+str(a[0])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[2]='    '+str(ele[2])+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(b[0])+', 1, 0, 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[3]='    '+str(ele[3])+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, 0, 1, '+str(b[1])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[4]='    '+str(ele[4])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[1])+', 1, '+str(a[1])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[5]='    '+str(ele[5])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[1])+', 1, '+str(a[1])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[6]='    '+str(ele[6])+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(b[1])+', 1, 0, 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[7]='    '+str(ele[7])+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, 0, 1, '+str(b[2])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[8]='    '+str(ele[8])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[2])+', 1, '+str(a[2])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[9]='    '+str(ele[9])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[2])+', 1, '+str(a[2])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[10]='    '+str(ele[10])+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(b[2])+', 1, 0, 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[11]='    '+str(ele[11])+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, 0, 1, '+str(b[3])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[12]='    '+str(ele[12])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[3])+', 1, '+str(a[3])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	crossbeam_str[13]='    '+str(ele[13])+', BEAM   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(a[3])+', 1, '+str(a[3])+', 0, 0, 0, 0, 恒载组, NO, 0, 0, NO,\n'
+	return crossbeam_str
+
+def stld_tem_str(tem_width_1, tem_width_2, tem_h, tem):
+	'''# 建立温度梯度荷载信息字符串'''
+	w1=tem_width_1
+	w2=tem_width_2
+	h=tem_h
+	t=tem
+	tem_str=[[]]*4*81
+	for i in range(len(w1)-1):
+		tem_str[i*4]='  '+str(i+1)+', LZ, Top, 3, , NO\n'
+		tem_str[i*4+1]='    ELEMENT,  0, 0,  '+str(w1[i])+',  '+str(h[0])+', '+str(t[0])+',  '+str(h[1])+', '+str(t[1])+'\n'
+		tem_str[i*4+2]='    ELEMENT,  0, 0,  '+str(w1[i])+',  '+str(h[1])+', '+str(t[1])+',  '+str(h[2])+', '+str(t[2])+'\n'
+		tem_str[i*4+3]='    ELEMENT,  0, 0,  '+str(w2[i])+',  '+str(h[2])+', '+str(t[2])+',  '+str(h[3])+', '+str(t[3])+'\n'
+	return tem_str
+
 def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template):
 	row_add=0
 	for i in range(14):# 逐个建立控制截面

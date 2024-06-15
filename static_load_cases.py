@@ -44,3 +44,20 @@ def crossbeam_plate_load(web_quantity, bridge_width):
 	crossbeam_load=[(1.5*2+x*(2-0.28-0.22)-(web_quantity-1)*(1*0.2+0.6*0.2))*(-26) for x in box_width]# 两侧小箱面积1.5*2
 	plate_load=[(x*(0.2+0.2)+1.8*2*0.2)*(-26) for x in box_width]# 顶底板加腋厚0.2+0.2，两侧小箱顶板加腋0.2
 	return crossbeam_load, plate_load
+
+def tem_load(web_quantity, bridge_width, node_x):
+	'''# 计算温度荷载宽度参数'''
+	x=[0, 9, 12, 19, 22, 32, 35, 46, 49, 59, 62, 69, 72, 81]
+	fp=bridge_width
+	tem_width_1=[[]]*82
+	for i in range(len(x)-1):
+		sta=x[i]
+		end=x[i+1]
+		xp=[node_x[sta], node_x[end]]
+		fp=[bridge_width[i],bridge_width[i+1]]
+		tem_width_1[sta:end+1]=np.interp(node_x[sta:end+1], xp, fp)# 按节点位置线性插值
+	tem_width_2=[(web_quantity*2.4+2.5*2)]*82
+	tem_h=[0, 0.1, 0.28, 0.4]
+	tem_up=[14, 5.5, 2.2, 0]
+	tem_down=[-7, -2.75, -1.1, 0]
+	return tem_width_1, tem_width_2, tem_h, tem_up, tem_down

@@ -4,7 +4,8 @@ import steel_strand_build as steel
 import static_load_cases as stld
 import mct_file_edit as mct
 
-file_name='template.mct'# 读取模板文件
+# 读取模板mct文件
+file_name='template.mct'
 with open(file_name, 'r') as file_template:
 	data_template=file_template.readlines()
 
@@ -34,8 +35,10 @@ steel_strand_pos=682# data_template模板文件钢绞线束形布置首行位置
 stld_pave_pos=747# data_template模板文件静力荷载工况：二期（铺装）梁单元荷载首行位置
 stld_bumperwall_pos=839# data_template模板文件静力荷载工况：二期（防撞墙等）梁单元荷载首行位置
 stld_crossbeam_pos=951# data_template模板文件静力荷载工况：横梁荷载梁单元荷载首行位置
-stld_tempup_pos=992# data_template模板文件静力荷载工况：温度梯度（升温）首行位置993
-stld_tempdown_pos=1327# data_template模板文件静力荷载工况：温度梯度（降温）首行位置1008
+stld_temup_pos=992# data_template模板文件静力荷载工况：温度梯度（升温）首行位置
+stld_temdown_pos=1327# data_template模板文件静力荷载工况：温度梯度（降温）首行位置
+lane_pos_1=1679# data_template模板文件静车道线：单车道首行位置
+lane_pos_2=1707# data_template模板文件静车道线：车道1（带系数）首行位置
 # 样板信息结束
 
 # 修改节点
@@ -65,10 +68,16 @@ data_template[(stld_pave_pos+row_add):(stld_pave_pos+row_add+len(pave_str))]=pav
 data_template[(stld_bumperwall_pos+row_add):(stld_bumperwall_pos+row_add+len(bumperwall_str))]=bumperwall_str# 修改二期防撞墙荷载，行号不变
 # 修改横梁荷载
 crossbeam_load, plate_load=stld.crossbeam_plate_load(web_quantity, bridge_width)
+crossbeam_str=mct.stld_crossbeam_str(crossbeam_load, plate_load)
+data_template[(stld_crossbeam_pos+row_add):(stld_crossbeam_pos+row_add+len(crossbeam_str))]=crossbeam_str# 修改二期铺装荷载，行号不变
+# 修改温度梯度荷载
+tem_width_1, tem_width_2, tem_h, tem_up, tem_down=stld.tem_load(web_quantity, bridge_width, node_x)
+stld_temup_str=mct.stld_tem_str(tem_width_1, tem_width_2, tem_h, tem_up)
+stld_temdown_str=mct.stld_tem_str(tem_width_1, tem_width_2, tem_h, tem_down)
+data_template[(stld_temup_pos+row_add):(stld_temup_pos+row_add+len(stld_temup_str))]=stld_temup_str# 修改温度梯度升温荷载，行号不变
+data_template[(stld_temdown_pos+row_add):(stld_temdown_pos+row_add+len(stld_temdown_str))]=stld_temdown_str# 修改温度梯度升温荷载，行号不变
 
-# 修改温度梯度升温荷载
-# 修改温度梯度降温荷载
-
-project_name=bridge_name+'.mct'# 生成模型文件，即midas软件的.mct文件
+# 生成模型文件，即midas软件的.mct文件
+project_name=bridge_name+'.mct'
 with open(project_name, 'w') as file_object:
 	file_object.writelines(data_template)
