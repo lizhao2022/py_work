@@ -75,7 +75,15 @@ tem_width_1, tem_width_2, tem_h, tem_up, tem_down=stld.tem_load(web_quantity, br
 stld_temup_str=mct.stld_tem_str(tem_width_1, tem_width_2, tem_h, tem_up)
 stld_temdown_str=mct.stld_tem_str(tem_width_1, tem_width_2, tem_h, tem_down)
 data_template[(stld_temup_pos+row_add):(stld_temup_pos+row_add+len(stld_temup_str))]=stld_temup_str# 修改温度梯度升温荷载，行号不变
-data_template[(stld_temdown_pos+row_add):(stld_temdown_pos+row_add+len(stld_temdown_str))]=stld_temdown_str# 修改温度梯度升温荷载，行号不变
+data_template[(stld_temdown_pos+row_add):(stld_temdown_pos+row_add+len(stld_temdown_str))]=stld_temdown_str# 修改温度梯度降温荷载，行号不变
+# 修改单车道车道线跨径
+fac_1=[1]*82
+lane_str_1=mct.lane_str_1(span, fac_1)
+data_template[(lane_pos_1+row_add):(lane_pos_1+row_add+len(lane_str_1))]=lane_str_1# 修改单车道车道线信息，行号不变
+# 修改车道1车道线跨径及系数
+fac_2, fac_3=stld.lane_fac(bridge_width, bumperwall_width, node_x)
+lane_str_2=mct.lane_str_2(span, fac_2)
+data_template[(lane_pos_2+row_add):(lane_pos_2+row_add+len(lane_str_2))]=lane_str_2# 修改车道1车道线信息，行号不变
 
 # 生成模型文件，即midas软件的.mct文件
 project_name=bridge_name+'.mct'

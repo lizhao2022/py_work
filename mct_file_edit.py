@@ -174,6 +174,26 @@ def stld_tem_str(tem_width_1, tem_width_2, tem_h, tem):
 		tem_str[i*4+3]='    ELEMENT,  0, 0,  '+str(w2[i])+',  '+str(h[2])+', '+str(t[2])+',  '+str(h[3])+', '+str(t[3])+'\n'
 	return tem_str
 
+def lane_str_1(span, fac):
+	'''# 建立车道线信息字符串'''
+	a=str(max(span))
+	b=fac
+	lane_str=[[]]*27
+	for i in range(27):
+		lane_str[i]='           '+str(3*i+1)+', 0, '+a+', NO, '+str(b[3*i])+',    '+str(3*i+2)+', 0, '+a+', NO, '+str(b[3*i+1])+',    '+str(3*i+3)+', 0, '+a+', NO, '+str(b[3*i+2])+'\n'
+	lane_str[0]='           1, 0, '+a+', YES, '+str(b[0])+',    2, 0, '+a+', NO, '+str(b[1])+',    3, 0, '+a+', NO, '+str(b[2])+'\n'
+	return lane_str
+
+def lane_str_2(span, fac):
+	'''# 建立车道线信息字符串'''
+	a=str(max(span))
+	b=fac
+	lane_str=[[]]*40
+	for i in range(1,40):
+		lane_str[i]='           '+str(2*i+2)+', 0, '+a+', NO, '+str(b[2*i+1])+',    '+str(2*i+3)+', 0, '+a+', NO, '+str(b[2*i+2])+'\n'
+	lane_str[0]='           1, 0, '+a+', YES, '+str(b[0])+',    2, 0, '+a+', NO, '+str(b[1])+',    3, 0, '+a+', NO, '+str(b[2])+'\n'
+	return lane_str
+
 def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template):
 	row_add=0
 	for i in range(14):# 逐个建立控制截面

@@ -61,3 +61,23 @@ def tem_load(web_quantity, bridge_width, node_x):
 	tem_up=[14, 5.5, 2.2, 0]
 	tem_down=[-7, -2.75, -1.1, 0]
 	return tem_width_1, tem_width_2, tem_h, tem_up, tem_down
+
+def lane_fac(bridge_width, bumperwall_width, node_x):
+	'''# 根据桥宽计算车道数'''
+	a=len(bumperwall_width)-1# 计算单幅/双幅
+	lane_xp=[6, 7, 10.5, 14, 17.5, 21, 24.5, 28, 31.5]
+	lane_fp=[1, 2, 3, 4, 5, 6, 7, 8, 9]
+	tra_fac=[1.2, 1, 0.78, 0.67, 0.6, 0.55, 0.52, 0.5, 0.5]
+	lane_width=[(x-sum(bumperwall_width))/a for x in bridge_width]# 计算单幅车道净宽
+	lane_num=[int(np.interp(x, lane_xp, lane_fp)) for x in lane_width]# 计算控制截面车道数，按宽度插值，并向下取整
+	lane_sec=[x*np.interp(x, lane_fp, tra_fac) for x in lane_num]# 考虑车道数横向折减
+	x=[0, 9, 12, 19, 22, 32, 35, 46, 49, 59, 62, 69, 72, 81]
+	fac=[0]*82
+	for i in range(len(x)-1):
+		sta=x[i]
+		end=x[i+1]
+		xp=[node_x[sta], node_x[end]]
+		fp=[lane_sec[i],lane_sec[i+1]]
+		fac[sta:end+1]=np.interp(node_x[sta:end+1], xp, fp)# 按节点位置线性插值
+	lane_fac=[y/fac[0] for y in fac]# 计算相对值
+	return lane_fac, fac[0]*1.15*a
