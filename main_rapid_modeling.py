@@ -11,7 +11,7 @@ with open(file_name, 'r') as file_template:
 
 # 前置数据开始
 bridge_name='test'
-span=[30, 30, 30]# 跨径组合，3跨为例
+span=[32, 33, 34]# 跨径组合，3跨为例
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
 pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
 end_seams=[0.05, 0.05]# 梁端缝宽
@@ -29,7 +29,7 @@ stirrups_diameter=14# 抗剪箍筋直径
 # 样板信息开始
 node_pos=28# data_template模板文件节点坐标首行位置
 sec_pos=425# data_template模板文件截面特性首行位置
-sec_pos_dgn=578# data_template模板文件GN截面特性首行位置
+sec_pos_dgn=578# data_template模板文件DGN截面特性首行位置
 sec_pos_rebar=617# data_template模板文件截面钢筋首行位置
 steel_strand_pos=682# data_template模板文件钢绞线束形布置首行位置
 stld_pave_pos=747# data_template模板文件静力荷载工况：二期（铺装）梁单元荷载首行位置
@@ -37,8 +37,14 @@ stld_bumperwall_pos=839# data_template模板文件静力荷载工况：二期（
 stld_crossbeam_pos=951# data_template模板文件静力荷载工况：横梁荷载梁单元荷载首行位置
 stld_temup_pos=992# data_template模板文件静力荷载工况：温度梯度（升温）首行位置
 stld_temdown_pos=1327# data_template模板文件静力荷载工况：温度梯度（降温）首行位置
-lane_pos_1=1679# data_template模板文件静车道线：单车道首行位置
-lane_pos_2=1707# data_template模板文件静车道线：车道1（带系数）首行位置
+lane_pos_1=1679# data_template模板文件车道线：单车道首行位置
+lane_pos_2=1707# data_template模板文件车道线：车道1（带系数）首行位置
+mld_pos=1888# data_template模板文件移动荷载工况首行位置
+sm_group_pos=1892# data_template模板文件沉降组首行位置
+dgn_rebar_psc_pos=2088# data_template模板文件PSC截面DGN钢筋首行位置
+span_pos=2119# data_template模板文件结构跨度首行位置
+manager_rebar_pos=2146# data_template模板文件SECTION-MANAGER-REBAR首行位置
+manager_rebar_design_pos=2216# data_template模板文件SECTION-MANAGER-REBAR DESIGN首行位置
 # 样板信息结束
 
 # 修改节点
@@ -84,6 +90,22 @@ data_template[(lane_pos_1+row_add):(lane_pos_1+row_add+len(lane_str_1))]=lane_st
 fac_2, fac_3=stld.lane_fac(bridge_width, bumperwall_width, node_x)
 lane_str_2=mct.lane_str_2(span, fac_2)
 data_template[(lane_pos_2+row_add):(lane_pos_2+row_add+len(lane_str_2))]=lane_str_2# 修改车道1车道线信息，行号不变
+# 修改移动荷载工况
+mld_str=mct.mld_str(fac_3)
+data_template[(mld_pos+row_add):(mld_pos+row_add+len(mld_str))]=mld_str# 修改移动荷载工况信息，行号不变
+# 修改沉降组
+sm_group_str=mct.sm_group_str(span)
+data_template[(sm_group_pos+row_add):(sm_group_pos+row_add+len(sm_group_str))]=sm_group_str# 修改沉降组信息，行号不变
+# 修改DGN-REBAR-PSC
+data_template=mct.data_template_edit_rebar(rebar_str, dgn_rebar_psc_pos+row_add, data_template)# 修改DGN-REBAR-PSC信息，行号不变
+# 修改SECTION-MANAGER-REBAR
+manager_str=mct.sec_manager_rebar_str(web_quantity, stirrups_diameter)
+data_template[(manager_rebar_pos+row_add):(manager_rebar_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR信息，行号不变
+# 修改SECTION-MANAGER-REBAR DESIGN
+data_template[(manager_rebar_design_pos+row_add):(manager_rebar_design_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR DESIGN信息，行号不变
+# 修改结构跨度
+span_str=mct.span_str(span, pedestal_position, end_seams)
+data_template[(span_pos+row_add):(span_pos+row_add+len(span_str))]=span_str# 修改结构跨度信息，行号不变
 
 # 生成模型文件，即midas软件的.mct文件
 project_name=bridge_name+'.mct'

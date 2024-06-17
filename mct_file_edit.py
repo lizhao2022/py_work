@@ -194,6 +194,40 @@ def lane_str_2(span, fac):
 	lane_str[0]='           1, 0, '+a+', YES, '+str(b[0])+',    2, 0, '+a+', NO, '+str(b[1])+',    3, 0, '+a+', NO, '+str(b[2])+'\n'
 	return lane_str
 
+def mld_str(fac):
+	'''# 建立移动荷载工况信息字符串'''
+	mld_str=['        VL, CH-CD, '+str(fac)+', 0, 1, 车道1\n']
+	return mld_str
+
+def sm_group_str(span):
+	'''# 建立沉降组信息字符串'''
+	sm_str=[[]]*4
+	sm_str[0]='   1, '+str(-span[0]/5000)+', 83\n'
+	sm_str[1]='   2, '+str(-max(span[0:1])/5000)+', 84\n'
+	sm_str[2]='   3, '+str(-max(span[1:2])/5000)+', 85\n'
+	sm_str[3]='   4, '+str(-span[2]/5000)+', 86\n'
+	return sm_str
+
+def span_str(span, ped, seam):
+	'''# 建立结构跨度信息字符串'''
+	span_str=['        YES, '+str(ped[0])+', '+str(span[0]-ped[0]-seam[0])+', '+str(span[1])+', '+str(span[1]-ped[1]-seam[1])+', '+str(ped[1])+'\n']
+	return span_str
+
+def sec_manager_rebar_str(web_quantity, stirrups_dia):
+	'''# 建立SECTION-MANAGER-REBAR字符串'''
+	stirrups_area=web_quantity*stirrups_dia*stirrups_dia/4*3.1415926/1000/1000*2# 双肢面积
+	manager_rebar_str=[[]]*13*4
+	for i in range(13):
+		manager_rebar_str[4*i]='   SECT='+str(i+19)+', YES, YES, NO, 1, NO, 0, 0\n'
+		manager_rebar_str[4*i+1]=' 0, 0\n'
+		manager_rebar_str[4*i+2]=' NO, 0, 0, 0, NO, 0, 90, 0, 0, 0.6, NO, 0, 0, 0, YES, 0.1, '+str(stirrups_area*2)+', NO, 0, NO, 0, 0, 0, 0, 0\n'
+		manager_rebar_str[4*i+3]=' NO, 0, 0, 0, NO, 0, 90, 0, 0, 0.6, NO, 0, 0, 0, YES, 0.1, '+str(stirrups_area*2)+', NO, 0, NO, 0, 0, 0, 0, 0\n'
+	for i in [2, 6, 10]:
+		manager_rebar_str[4*i]='   SECT='+str(i+19)+', YES, YES, NO, 1, NO, 0, 0\n'
+		manager_rebar_str[4*i+1]=' 0, 0\n'
+		manager_rebar_str[4*i+2]=' NO, 0, 0, 0, NO, 0, 90, 0, 0, 0.6, NO, 0, 0, 0, YES, 0.1, '+str(stirrups_area)+', NO, 0, NO, 0, 0, 0, 0, 0\n'
+		manager_rebar_str[4*i+3]=' NO, 0, 0, 0, NO, 0, 90, 0, 0, 0.6, NO, 0, 0, 0, YES, 0.1, '+str(stirrups_area)+', NO, 0, NO, 0, 0, 0, 0, 0\n'
+	return manager_rebar_str
 def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template):
 	row_add=0
 	for i in range(14):# 逐个建立控制截面
