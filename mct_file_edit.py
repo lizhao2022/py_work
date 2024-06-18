@@ -60,8 +60,8 @@ def sec_taper_str_build(pro_i, poly_i, pro_j, poly_j):
 	for i in range(3):
 		pro_taper[i]='       '+', '.join([str(x) for x in pro_i[i]])+'\n'# 首端
 		pro_taper[i+3]='       '+', '.join([str(x) for x in pro_j[i]])+'\n'# 尾端
-	pro_taper[6]='       '+', '.join([str(x) for x in pro_i[3]])+', '.join([str(x) for x in pro_j[3]])+'\n'# 首尾顺序
-	pro_taper[7]='       YES, '+str(pro_i[4][0])+', '+str(pro_i[4][1])+', YES, , YES, , YES, , '+str(pro_i[4][2])+', YES, , YES, , YES, YES, '+str(pro_j[4][0])+', '+str(pro_j[4][1])+', YES, , YES, , YES, , '+str(pro_j[4][2])+', YES, , YES, , YES,\n'# 首尾顺序
+	pro_taper[6]='       '+', '.join([str(x) for x in pro_i[3]])+', '+', '.join([str(x) for x in pro_j[3]])+'\n'# 首尾顺序
+	pro_taper[7]='       YES, '+str(pro_i[4][0])+', '+str(pro_i[4][1])+', YES, , YES, , YES, , '+str(pro_i[4][2])+', YES, , YES, , YES, , '+str(pro_j[4][0])+', '+str(pro_j[4][1])+', YES, , YES, , YES, , '+str(pro_j[4][2])+', YES, , YES, , YES,\n'# 首尾顺序
 	# 建立首端截面外轮廓字符串列表
 	outpoly_i=[[]]*4
 	outpoly_i[0]='       OPOLY=YES, '+', '.join([str(x) for x in poly_i[0][0:8]])+'\n'
@@ -203,8 +203,8 @@ def sm_group_str(span):
 	'''# 建立沉降组信息字符串'''
 	sm_str=[[]]*4
 	sm_str[0]='   1, '+str(-span[0]/5000)+', 83\n'
-	sm_str[1]='   2, '+str(-max(span[0:1])/5000)+', 84\n'
-	sm_str[2]='   3, '+str(-max(span[1:2])/5000)+', 85\n'
+	sm_str[1]='   2, '+str(-max(span[0:2])/5000)+', 84\n'
+	sm_str[2]='   3, '+str(-max(span[1:3])/5000)+', 85\n'
 	sm_str[3]='   4, '+str(-span[2]/5000)+', 86\n'
 	return sm_str
 
