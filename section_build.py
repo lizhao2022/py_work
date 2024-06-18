@@ -106,8 +106,8 @@ def get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, 
 	cxm=xc_distance
 	cyp=2-yc_distance
 	cym=yc_distance
-	T1=0.22# 设计用顶板厚
-	T2=0.28# 设计用底板厚
+	T1=0.28# 设计用顶板厚
+	T2=0.22# 设计用底板厚
 	HT=2-T1/2-T2/2
 	BT=bridge_width-5.45*2
 	Z1=T1+0.2# 剪切验算位置Z1
@@ -116,8 +116,8 @@ def get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, 
 	# 调整截面特性输出格式，对应.mct文件的参数顺序
 	# 本程序定义截面的坐标轴（x0,y0,z0）与mct文件坐标轴(X,Y,Z)，对应转换关系为x0轴>Y轴，y0轴>Z轴，z0轴>X轴
 	sec_pro_st=[[],[],[],[],[]]
-	sec_pro_st[0]=[A, Asx, Asy, Ixx, Iyy, Izz]
-	sec_pro_st[1]=[cxp, cxm, cyp, cym, Qxb, Qyb, peri_out, peri_in, xc_distance, yc_distance]
+	sec_pro_st[0]=[A, Asx, Asy, Izz, Ixx, Iyy]
+	sec_pro_st[1]=[cxp, cxm, cyp, cym, Qyb, Qxb, peri_out, peri_in, xc_distance, yc_distance]
 	sec_pro_st[2]=[stress_point_location[0][0], stress_point_location[1][0], stress_point_location[2][0], stress_point_location[3][0], stress_point_location[0][1], stress_point_location[1][1], stress_point_location[2][1], stress_point_location[3][1]]
 	sec_pro_st[3]=[HT, BT, T1, T2]
 	sec_pro_st[4]=[Z1, Z3, tw]
