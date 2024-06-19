@@ -41,10 +41,10 @@ lane_pos_1=1679# data_template模板文件车道线：单车道首行位置
 lane_pos_2=1707# data_template模板文件车道线：车道1（带系数）首行位置
 mld_pos=1888# data_template模板文件移动荷载工况首行位置
 sm_group_pos=1892# data_template模板文件沉降组首行位置
-dgn_rebar_psc_pos=2088# data_template模板文件PSC截面DGN钢筋首行位置
+# ~ dgn_rebar_psc_pos=2088# data_template模板文件PSC截面DGN钢筋首行位置
+# ~ manager_rebar_pos=2146# data_template模板文件SECTION-MANAGER-REBAR首行位置
+# ~ manager_rebar_design_pos=2216# data_template模板文件SECTION-MANAGER-REBAR DESIGN首行位置
 span_pos=2119# data_template模板文件结构跨度首行位置
-manager_rebar_pos=2146# data_template模板文件SECTION-MANAGER-REBAR首行位置
-manager_rebar_design_pos=2216# data_template模板文件SECTION-MANAGER-REBAR DESIGN首行位置
 # 样板信息结束
 
 # 修改节点
@@ -96,13 +96,13 @@ data_template[(mld_pos+row_add):(mld_pos+row_add+len(mld_str))]=mld_str# 修改�
 # 修改沉降组
 sm_group_str=mct.sm_group_str(span)
 data_template[(sm_group_pos+row_add):(sm_group_pos+row_add+len(sm_group_str))]=sm_group_str# 修改沉降组信息，行号不变
-# 修改DGN-REBAR-PSC
-data_template=mct.data_template_edit_rebar(rebar_str, dgn_rebar_psc_pos+row_add, data_template)# 修改DGN-REBAR-PSC信息，行号不变
-# 修改SECTION-MANAGER-REBAR
-manager_str=mct.sec_manager_rebar_str(web_quantity, stirrups_diameter)
-data_template[(manager_rebar_pos+row_add):(manager_rebar_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR信息，行号不变
-# 修改SECTION-MANAGER-REBAR DESIGN
-data_template[(manager_rebar_design_pos+row_add):(manager_rebar_design_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR DESIGN信息，行号不变
+# ~ # 修改DGN-REBAR-PSC
+# ~ data_template=mct.data_template_edit_rebar(rebar_str, dgn_rebar_psc_pos+row_add, data_template)# 修改DGN-REBAR-PSC信息，行号不变
+# ~ # 修改SECTION-MANAGER-REBAR
+# ~ manager_str=mct.sec_manager_rebar_str(web_quantity, stirrups_diameter)
+# ~ data_template[(manager_rebar_pos+row_add):(manager_rebar_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR信息，行号不变
+# ~ # 修改SECTION-MANAGER-REBAR DESIGN
+# ~ data_template[(manager_rebar_design_pos+row_add):(manager_rebar_design_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR DESIGN信息，行号不变
 # 修改结构跨度
 span_str=mct.span_str(span, pedestal_position, end_seams)
 data_template[(span_pos+row_add):(span_pos+row_add+len(span_str))]=span_str# 修改结构跨度信息，行号不变
