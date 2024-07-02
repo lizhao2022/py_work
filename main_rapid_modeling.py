@@ -45,7 +45,7 @@ sm_group_pos=1892# data_template模板文件沉降组首行位置
 # ~ dgn_rebar_psc_pos=2088# data_template模板文件PSC截面DGN钢筋首行位置
 # ~ manager_rebar_pos=2146# data_template模板文件SECTION-MANAGER-REBAR首行位置
 # ~ manager_rebar_design_pos=2216# data_template模板文件SECTION-MANAGER-REBAR DESIGN首行位置
-span_pos=2119# data_template模板文件结构跨度首行位置
+span_pos=2081# data_template模板文件结构跨度首行位置
 # 样板信息结束
 
 # 修改节点
