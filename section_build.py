@@ -1,12 +1,23 @@
 # 程序用于生成单箱多室截面并计算特性
-# 既定：梁高2、双侧鱼腹式悬臂5、悬臂小箱、顶板厚0.28、底板厚0.22、顶板倒角1*0.2、底板倒角0.6*0.2
-# 输入值：桥面宽度、腹板数量、腹板厚度
+# 既定：底板厚0.22、顶板倒角1*0.2、底板倒角0.6*0.2
+# 输入值：桥面宽度、腹板数量、腹板厚度、梁高
 # 输出值：截面线框点坐标、截面特性
 import triangle as tr
 import numpy as np
 import matplotlib.pyplot as plt
 import math
 import json
+
+def get_peri(polygon):# 定义函数计算截面周长
+	peri=math.sqrt((polygon[-1][0]-polygon[0][0])**2+(polygon[-1][1]-polygon[-1][1])**2)
+	for i in range(len(polygon)-1):
+		x1=polygon[i][0]
+		x2=polygon[i+1][0]
+		y1=polygon[i][1]
+		y2=polygon[i+1][1]
+		peri+=math.sqrt((x1-x2)**2+(y1-y2)**2)
+	return peri
+
 def get_property(a, b):# 定义函数计算截面特性
 	# 输入参数为划分的三角形点坐标矩阵a、三角形点线顺序矩阵b
 	# 输出参数为面积、对xc轴惯性矩、对yc轴惯性矩、形心yc、形心xc、形心轴yc单侧面积矩、形心轴xc单侧面积矩
@@ -67,55 +78,68 @@ def get_segment(vector):# 定义函数进行点线分段编号
 		vector_matrix[j]=[j,a]# 闭合段结束编号
 	return vector_matrix
 	
-def get_polygon(bw,web_n,tw):# 定义函数生成截面
-	# 截面类型为单箱多室
-	# 既定：梁高2、双侧鱼腹式悬臂5、悬臂小箱、顶板厚0.28、底板厚0.22、顶板倒角1*0.2、底板倒角0.6*0.2
-	# 输入参数为截面宽度、腹板数量、腹板厚度
+def get_polygon(bw, web_n, tw, h):# 定义函数生成截面
+	# 既定：顶板倒角1*0.2、底板倒角0.6*0.2
+	# 输入参数为截面宽度、腹板数量、腹板厚度、梁高
 	# 输出参数为截面拐点坐标矩阵、箱内空心点坐标矩阵、闭合框线数量列表
-	line_out = [[0, 0], [0, -0.185], [1.36, -0.356], [2.926, -0.755], [4.345, -1.529], [5, -2], [bw-5, -2], [bw-4.345, -1.529], [bw-2.926, -0.755], [bw-1.36, -0.356], [bw, -0.185], [bw, 0]]# 外边框坐标（12节点）
-	line_in_box = [[3.5, -0.28], [3.4, -0.38], [3.4, -0.541], [4.872, -1.6], [5.2, -1.6], [5.2, -0.48], [4.2, -0.28]]# 内边框坐标，初始为第一个小箱坐标（7节点）
+	h_store=[2, 2.3, 2.5]# 参照梁高
+	cantilever_store=[5, 5.415, 5.695]# 参照悬臂长度
+	box_edge1_store=[5.2, 5.415, 5.695]# 参照边箱内侧线位置
+	box_bottom_store=[-1.6, -1.7, -1.9]# 参照边箱底缘位置
+	box_edge2_store=[4.872, 5.01, 5.289]# 参照边箱底侧线位置
+	pos=h_store.index(h)
+	can=cantilever_store[pos]
+	ed1=box_edge1_store[pos]
+	bot=box_bottom_store[pos]
+	ed2=box_edge2_store[pos]
+	tt=0.28
+	tb=0.22
+	line_out = [[0, 0], [0, -0.185], [1.36, -0.356], [2.926, -0.755], [4.345, -1.529], [can, -h], [bw-can, -h], [bw-4.345, -1.529], [bw-2.926, -0.755], [bw-1.36, -0.356], [bw, -0.185], [bw, 0]]# 外边框坐标（12节点）
+	line_in_box = [[3.5, -tt], [3.4, -tt-0.1], [3.4, -0.541], [ed2, bot], [ed1, bot], [ed1, -tt-0.2], [ed1-1, -tt]]# 内边框坐标，初始为第一个小箱坐标（7节点）
 	line_in_box.reverse()# 顺时针排序
-	line_in_last = [[bw-3.5, -0.28], [bw-3.4, -0.38], [bw-3.4, -0.541], [bw-4.872, -1.6], [bw-5.2, -1.6], [bw-5.2, -0.48], [bw-4.2, -0.28]]# 最后一个小箱坐标（7节点）
-	box_in = [[3.5, -0.38]]# 内边框空心点坐标，初始为第一个小箱空心点
-	box_in_last=[[bw-3.5, -0.38]]# 最后一个小箱空心点
+	peri_i=get_peri(line_in_box)
+	line_in_last = [[bw-3.5, -tt], [bw-3.4, -tt-0.1], [bw-3.4, -0.541], [bw-ed2, bot], [bw-ed1, bot], [bw-ed1, -tt-0.2], [bw-ed1+1, -tt]]# 最后一个小箱坐标（7节点）
+	peri_i+=get_peri(line_in_last)
+	box_in = [[3.5, -tt-0.1]]# 内边框空心点坐标，初始为第一个小箱空心点
+	box_in_last=[[bw-3.5, -tt-0.1]]# 最后一个小箱空心点
 	line_num=[8 for i in range(web_n+2)]# 各边框线数量列表
 	line_num[0]=12
 	line_num[1]=7
 	line_num[-1]=7
 	for i in range(web_n-1):
-		web_d= (bw-10-0.9)/(web_n-1) #计算腹板线间距
-		web_x1=5.45+web_d*i+tw/2# 计算内边框左边线
-		web_x2=5.45+web_d*(i+1)-tw/2# 计算内边框右边线
-		box=[[web_x1+1, -0.28], [web_x1, -0.48], [web_x1, -1.58] ,[web_x1+0.6, -1.78] , [web_x2-0.6, -1.78], [web_x2, -1.58], [web_x2, -0.48], [web_x2-1, -0.28]]# 计算并汇总内边框坐标（每大箱8节点）
+		web_d= (bw-ed1*2-0.25*2)/(web_n-1) #计算腹板线间距
+		web_x1=ed1+0.25+web_d*i+tw/2# 计算内边框左边线
+		web_x2=ed1+0.25+web_d*(i+1)-tw/2# 计算内边框右边线
+		box=[[web_x1+1, -tt], [web_x1, -tt-0.2], [web_x1, -h+tb+0.2] ,[web_x1+0.6, -h+tb] , [web_x2-0.6, -h+tb], [web_x2, -h+tb+0.2], [web_x2, -tt-0.2], [web_x2-1, -tt]]# 计算并汇总内边框坐标（每大箱8节点）
 		box.reverse()# 顺时针排序
+		peri_i+=get_peri(box)
 		line_in_box+=box
-		box_in+=[[web_x1+1, -0.48]]# 计算并汇总内边框空心点坐标
+		box_in+=[[web_x1+1, -tt-0.2]]# 计算并汇总内边框空心点坐标
 	line_sum=line_out+line_in_box+line_in_last# 边框点坐标汇总
 	box_in_sum=box_in+box_in_last# 内箱空心点汇总
-	return line_sum, box_in_sum, line_num
+	peri_o=get_peri(line_out)
+	return line_sum, box_in_sum, line_num, h, can, ed1, tt, tb, peri_o, peri_i
 
-def get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, cent_x, Qy, Qx):# 定义函数规范化截面特性输出格式
+def get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, cent_x, Qy, Qx, h, can, ed1, tt, tb, peri_out, peri_in):# 定义函数规范化截面特性输出格式
 	Qyb=Qy/(web_quantity*web_thickness)# 计算沿yc剪切系数
-	Qxb=Qx/(0.28+0.22)# 计算沿xc剪切系数
-	Izz=(bridge_width-5.45*2)*1.75# 计算扭转惯性矩
-	Asx=(bridge_width-5*2)*0.22+bridge_width*0.28# 计算沿xc有效剪切面积
+	Qxb=Qx/(tt+tb)# 计算沿xc剪切系数
+	Izz=(bridge_width-(ed1+0.25)*2)*(h-tt/2-tb/2)# 计算扭转惯性矩
+	Asx=(bridge_width-can*2)*tb+bridge_width*tt# 计算沿xc有效剪切面积
 	Asy=web_quantity*web_thickness*2# 计算沿yc有效剪切面积
-	peri_out=10*2+bridge_width*2-5*2# 计算外轮廓周长
-	peri_in=1*2+(web_quantity-1)*7.5+(bridge_width-5.45*2-(web_quantity-1)*(web_thickness+2))*2# 计算内轮廓周长
-	stress_point_location=[[-cent_x, -cent_y], [cent_x, -cent_y], [cent_x-5, -cent_y-2], [-cent_x+5, -cent_y-2]]# 计算形心外框4个应力点坐标
-	yc_distance=cent_y+2 # 计算截面最下端到形心的距离
+	stress_point_location=[[-cent_x, -cent_y], [cent_x, -cent_y], [cent_x-can, -cent_y-h], [-cent_x+can, -cent_y-h]]# 计算形心外框4个应力点坐标
+	yc_distance=cent_y+h # 计算截面最下端到形心的距离
 	xc_distance=cent_x#  计算截面最左侧到形心的距离
 	cxp=xc_distance
 	cxm=xc_distance
-	cyp=2-yc_distance
+	cyp=h-yc_distance
 	cym=yc_distance
-	T1=0.28# 设计用顶板厚
-	T2=0.22# 设计用底板厚
-	HT=2-T1/2-T2/2
-	BT=bridge_width-5.45*2
-	Z1=T1+0.2# 剪切验算位置Z1
-	Z3=2-T2-0.2# 剪切验算位置Z3
-	tw=0.25# 验算扭转用厚度
+	T1=tt# 设计用顶板厚
+	T2=tb# 设计用底板厚
+	HT=h-T1/2-T2/2
+	BT=bridge_width-(ed1+0.25)*2
+	Z1=T2+0.2# 剪切验算位置Z1
+	Z3=h-T1-0.2# 剪切验算位置Z3
+	tw=tt/2+tb/2# 验算扭转用厚度
 	# 调整截面特性输出格式，对应.mct文件的参数顺序
 	# 本程序定义截面的坐标轴（x0,y0,z0）与mct文件坐标轴(X,Y,Z)，对应转换关系为x0轴>Y轴，y0轴>Z轴，z0轴>X轴
 	sec_pro_st=[[],[],[],[],[]]
@@ -141,20 +165,15 @@ def get_sec_poly(polygon, web_quantity, cent_x, cent_y):# 定义函数标准化�
 		sec_poly_st[i]=polygon_array[polygon_ser[i]*2:polygon_ser[i+1]*2]# 逐行赋值线框坐标
 	return sec_poly_st
 
-def section_build(bridge_width, web_quantity, web_thickness):# 定义函数，调用上述基本函数建立截面并整理输出sec_pro,sec_poly
-	polygon, hole_point, poly_num=get_polygon(bridge_width, web_quantity, web_thickness)# 生成截面数据
+def section_build(bridge_width, web_quantity, web_thickness, beam_height):# 定义函数，调用上述基本函数建立截面并整理输出sec_pro,sec_poly
+	polygon, hole_point, poly_num, h, can, ed1, tt, tb, p_o, p_i=get_polygon(bridge_width, web_quantity, web_thickness, beam_height)# 生成截面数据
 	seg=get_segment(poly_num)# 生成截面边框点线顺序
 	tr_input= dict(vertices=polygon,segments=seg,holes=hole_point)# 整理triangle入参
 	tr_output= tr.triangulate(tr_input,'a0.04q30lpen',)# 执行triangle划分
 	A, Ixx, Iyy, cent_y, cent_x, Qy, Qx= get_property(tr_output['vertices'], tr_output['triangles'])# 根据triangle出参计算截面特性
-	sec_pro=get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, cent_x, Qy, Qx)# 整理输出截面特性
+	sec_pro=get_sec_pro(bridge_width, web_quantity, web_thickness, A, Ixx, Iyy, cent_y, cent_x, Qy, Qx, h, can, ed1, tt, tb, p_o, p_i)# 整理输出截面特性
 	sec_poly=get_sec_poly(polygon, web_quantity, cent_x, cent_y)# 整理输出截面点坐标
 	return sec_pro, sec_poly
-
-# ~ bridge_width=49.96
-# ~ web_quantity=10
-# ~ web_thickness=0.8
-# ~ sec_pro, sec_poly=section_build(bridge_width, web_quantity, web_thickness)
 
 # ~ # 输出截面特性
 # ~ filename='sec_pro.json'

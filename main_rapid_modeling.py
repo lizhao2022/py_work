@@ -12,6 +12,7 @@ with open(file_name, 'r') as file_template:
 # 前置数据开始
 bridge_name='test'
 span=[32, 33, 34]# 跨径组合，3跨为例
+beam_height=2
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
 pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
 end_seams=[0.05, 0.05]# 梁端缝宽
@@ -58,7 +59,7 @@ data_template=mct.data_template_edit_rebar(rebar_str, sec_pos_rebar, data_templa
 sec_pro_total=[[]]*14
 sec_poly_total=[[]]*14
 for i in range(14):
-	sec_pro_total[i], sec_poly_total[i]=sec.section_build(bridge_width[i], web_quantity, web_thickness[i])
+	sec_pro_total[i], sec_poly_total[i]=sec.section_build(bridge_width[i], web_quantity, web_thickness[i], beam_height)
 data_template, row_add=mct.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)
 # 修改钢束
 steel_x, steel_y, steel_r, steel_count=steel.steel_strand_build(span, end_seams, web_quantity)
