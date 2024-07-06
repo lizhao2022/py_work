@@ -679,19 +679,6 @@ D3#-1~0, 73to81,  LINEAR, , , ,  LINEAR, , , , 0
 ;      Y=...
 ;      Z=X1, Z1, bFIX1, RZ1, RADIUS1, OPT1, ANGLE1, HGT1, R1
 ;      Z=...
-   NAME=D1, N-9, 4to78, 0, 0, ROUND, 3D
-   NAME=D2, N-9, 1to20, 0, 0, ROUND, 3D
-   NAME=D2A, N-9, 1to21, 0, 0, ROUND, 3D
-   NAME=D3, N-9, 62to81, 0, 0, ROUND, 3D
-   NAME=D3A, N-9, 61to81, 0, 0, ROUND, 3D
-   NAME=F1, N-12, 8to74, 0, 0, ROUND, 3D
-   NAME=F2, N-12, 6to76, 0, 0, ROUND, 3D
-   NAME=F3, N-12, 4to78, 0, 0, ROUND, 3D
-   NAME=T1, N-9, 19to63, 0, 0, ROUND, 3D
-   NAME=T2, N-9, 1to37, 0, 0, ROUND, 3D
-   NAME=T3, N-9, 45to81, 0, 0, ROUND, 3D
-   NAME=T4, N-9, 10to72, 0, 0, ROUND, 3D
-   NAME=T4a, N-9, 7to75, 0, 0, ROUND, 3D
 
 *STLDCASE    ; Static Load Cases
 ; LCNAME, LCTYPE, DESC
@@ -925,19 +912,6 @@ D3#-1~0, 73to81,  LINEAR, , , ,  LINEAR, , , , 0
 
 *TDN-PRESTRESS    ; Tendon Prestress Loads
 ; TDN-NAME, FORCE/STRESS, JACKING, BEGIN, END, iGROUTING, GROUP
- F1, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
- F2, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
- F3, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
- T1, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
- T2, STRESS, END, 0, 1.35e+06, 1, 预应力
- T3, STRESS, BEGIN, 1.35e+06, 0, 1, 预应力
- T4, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
- D1, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
- D2, STRESS, END, 0, 1.35e+06, 1, 预应力
- D2A, STRESS, END, 0, 1.35e+06, 1, 预应力
- D3, STRESS, BEGIN, 1.35e+06, 0, 1, 预应力
- D3A, STRESS, BEGIN, 1.35e+06, 0, 1, 预应力
- T4a, STRESS, BOTH, 1.35e+06, 1.35e+06, 1, 预应力
 
 ; End of data for load case [预应力] -------------------------
 

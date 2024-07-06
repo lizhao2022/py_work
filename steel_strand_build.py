@@ -1,22 +1,38 @@
 import math
 
 def steel_f(xe, xp, sp1, sp2, sp3, ye, yp, ys1, ys2, ys3, ae, ap, bh):# 计算腹板束坐标
-	yk=[ye, bh-ys1, yp, bh-ys2, yp, bh-ys3, ye]
+	yk=[ye, -bh+ys1, yp, -bh+ys2, yp, -bh+ys3, ye]
 	a=[ap]*6
 	a[0]=ae
 	a[-1]=ae
 	dx=[0]*(len(yk)-1)
 	for j in range(len(yk)-1):
-		dy=yk[j+1]-yk[j]
+		dy=abs(yk[j+1]-yk[j])
 		dx[j]=dy/math.tan(math.radians(a[j]))
-	x=[xe, xe+dx[0], sp1-dx[1], sp1-xp, sp1+xp, sp1+dx[2], sp2-dx[3], sp2-xp, sp2+xp, sp2+dx[4], sp3-dx[5], sp3-xe]
-	y=[ye, bh-ys1, bh-ys1, yp, yp, bh-ys2, bh-ys2, yp, yp, bh-ys3, bh-ys3, ye]
+	x=[xe, xe+dx[0], sp1-xp-dx[1], sp1-xp, sp1+xp, sp1+xp+dx[2], sp2-xp-dx[3], sp2-xp, sp2+xp, sp2+xp+dx[4], sp3-xe-dx[5], sp3-xe]
+	y=[ye, -bh+ys1, -bh+ys1, yp, yp, -bh+ys2, -bh+ys2, yp, yp, -bh+ys3, -bh+ys3, ye]
 	return x, y
 
 def steel_strand_build(span, end_seams, web, beam_height):
 	span_1=span[0]-end_seams[0]
 	span_2=span_1+span[1]
 	span_3=span_2+span[2]-end_seams[1]
+	
+	# 钢束形状名称
+	steel_det=[[]]*13
+	steel_det[0]=['D1', 'N-9', '4to78', 'BOTH', '1.35e+06', '1.35e+06']
+	steel_det[1]=['D2', 'N-9', '1to20', 'END', '0', '1.35e+06']
+	steel_det[2]=['D2A', 'N-9', '1to21', 'END', '0', '1.35e+06']
+	steel_det[3]=['D3', 'N-9', '62to81', 'BEGIN', '1.35e+06', '0']
+	steel_det[4]=['D3A', 'N-9', '61to81', 'BEGIN', '1.35e+06', '0']
+	steel_det[5]=['F1', 'N-12', '8to74', 'BOTH', '1.35e+06', '1.35e+06']
+	steel_det[6]=['F2', 'N-12', '6to76', 'BOTH', '1.35e+06', '1.35e+06']
+	steel_det[7]=['F3', 'N-12', '4to78', 'BOTH', '1.35e+06', '1.35e+06']
+	steel_det[8]=['T1', 'N-9', '19to63', 'BOTH', '1.35e+06', '1.35e+06']
+	steel_det[9]=['T2', 'N-9', '1to37', 'END', '0', '1.35e+06']
+	steel_det[10]=['T3', 'N-9', '45to81', 'BEGIN', '1.35e+06', '0']
+	steel_det[11]=['T4', 'N-9', '10to72', 'BOTH', '1.35e+06', '1.35e+06']
+	steel_det[12]=['T4A', 'N-9', '7to15', 'BOTH', '1.35e+06', '1.35e+06']
 	
 	# 腹板束形状设计参数
 	xf_ends=[7.8, 5.3, 3.3]# 腹板束端部起终点水平位置
@@ -90,9 +106,9 @@ def steel_strand_build(span, end_seams, web, beam_height):
 	d3a_r=[0, dr, dr, 0]
 	f_r=[[]]*len(xf_ends)
 	for i in range(len(xf_ends)):
-		f1_r=[fr]*12
-		f1_r[0]=0
-		f1_r[-1]=0
+		f_r[i]=[fr]*12
+		f_r[i][0]=0
+		f_r[i][-1]=0
 	t1_r=[0, tr, tr, 0]
 	t2_r=[0, tr, tr, tr, 0]
 	t3_r=[0, tr, tr, tr, 0]
@@ -105,4 +121,4 @@ def steel_strand_build(span, end_seams, web, beam_height):
 	steel_r=[d1_r, d2_r, d2a_r, d3_r, d3a_r, f_r[0], f_r[1], f_r[2], t1_r, t2_r, t3_r, t4_r, t4a_r]
 	
 	steel_count=[2*web-2, 2*web-2, 2*web-2, 2*web-2, 2*web-2, 2*web, 2*web, 2*web, 4*web-6, 2*web, 2*web, 4, 2]
-	return steel_x, steel_y, steel_r, steel_count
+	return steel_x, steel_y, steel_r, steel_count, steel_det

@@ -121,14 +121,15 @@ def sec_rebar_str_build(web_quantity, stirrups_dia):
 	rebar_str[10]='        NO, , , , NO, , , , , , NO, , , , YES, 0.15, '+str(stirrups_area)+', NO, ,\n'
 	return rebar_str
 
-def steel_strand_str(x, y, r, count):
+def steel_strand_str(x, y, r, count, na):
 	'''# 建立钢束形状信息字符串'''
-	steel_str=[[]]*(3+len(x))
-	steel_str[0]='        , AUTO1, , , YES, '+str(count)+', 0, 0\n'
-	steel_str[1]='        STRAIGHT, 0, 0, 0, X, 0, 0\n'
-	steel_str[2]='        0, YES, Y, 0\n'
+	steel_str=[[]]*(4+len(x))
+	steel_str[0]='   NAME='+na[0]+', '+na[1]+', '+na[2]+', 0, 0, ROUND, 3D\n'
+	steel_str[1]='        , AUTO1, , , YES, '+str(count)+', 0, 0\n'
+	steel_str[2]='        STRAIGHT, 0, 0, 0, X, 0, 0\n'
+	steel_str[3]='        0, YES, Y, 0\n'
 	for i in range(len(x)):
-		steel_str[i+3]='        '+str(x[i])+', 0, '+str(y[i])+', NO, 0, 0, '+str(r[i])+'\n'
+		steel_str[i+4]='        '+str(x[i])+', 0, '+str(y[i])+', NO, 0, 0, '+str(r[i])+'\n'
 	return steel_str
 
 def stld_str(st_load):
@@ -137,6 +138,13 @@ def stld_str(st_load):
 	for i in range(len(st_str)):
 		st_str[i]='    '+str(i+1)+', LINE   , UNILOAD, GZ, NO , NO, aDir[1], , , , 0, '+str(st_load[i])+', 1, '+str(st_load[i+1])+', 0, 0, 0, 0, 二期, NO, 0, 0, NO,\n' 
 	return st_str
+
+def stld_prestress(prest):
+	'''# 建立预应力荷载信息字符串'''
+	pre_str=[[]]*len(prest)
+	for i in range(len(prest)):
+		pre_str[i]=' '+prest[i][0]+', STRESS, '+prest[i][3]+', '+prest[i][4]+', '+prest[i][5]+', 1, 预应力\n'
+	return pre_str
 
 def stld_crossbeam_str(crossbeam_load, plate_load):
 	'''# 建立横梁荷载信息字符串'''
@@ -228,6 +236,7 @@ def sec_manager_rebar_str(web_quantity, stirrups_dia):
 		manager_rebar_str[4*i+2]=' NO, 0, 0, 0, NO, 0, 90, 0, 0, 0.6, NO, 0, 0, 0, YES, 0.1, '+str(stirrups_area)+', NO, 0, NO, 0, 0, 0, 0, 0\n'
 		manager_rebar_str[4*i+3]=' NO, 0, 0, 0, NO, 0, 90, 0, 0, 0.6, NO, 0, 0, 0, YES, 0.1, '+str(stirrups_area)+', NO, 0, NO, 0, 0, 0, 0, 0\n'
 	return manager_rebar_str
+
 def data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template):
 	row_add=0
 	for i in range(14):# 逐个建立控制截面
@@ -262,13 +271,13 @@ def data_template_edit_rebar(rebar_str, pos_rebar, data):
 		pos_rebar+=2
 	return data
 
-def data_template_edit_steel(steel_str, steel_pos, row_add, data):
-	str_pos=steel_pos+row_add
-	for i in range(len(steel_str)):
-		data=ins_list(str_pos, steel_str[i], data)
-		str_pos+=len(steel_str[i])+1
-		row_add+=len(steel_str[i])
-	return data, row_add
+# ~ def data_template_edit_steel(steel_str, steel_pos, row_add, data):
+	# ~ str_pos=steel_pos+row_add
+	# ~ for i in range(len(steel_str)):
+		# ~ data=ins_list(str_pos, steel_str[i], data)
+		# ~ str_pos+=len(steel_str[i])
+		# ~ row_add+=len(steel_str[i])
+	# ~ return data, row_add
 
 # ~ '''# 生成.mct模型文件'''
 # ~ project_name='test.mct'# 生成模型文件，即midas软件的.mct文件

@@ -11,7 +11,7 @@ with open(file_name, 'r') as file_template:
 
 # 前置数据开始
 bridge_name='test'
-span=[32, 33, 34]# 跨径组合，3跨为例
+span=[30, 30, 30]# 跨径组合，3跨为例
 beam_height=2# 梁高
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
 pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
@@ -32,20 +32,23 @@ node_pos=28# data_template模板文件节点坐标首行位置
 sec_pos=425# data_template模板文件截面特性首行位置
 sec_pos_dgn=578# data_template模板文件DGN截面特性首行位置
 sec_pos_rebar=617# data_template模板文件截面钢筋首行位置
-steel_strand_pos=682# data_template模板文件钢绞线束形布置首行位置
-stld_pave_pos=747# data_template模板文件静力荷载工况：二期（铺装）梁单元荷载首行位置
-stld_bumperwall_pos=839# data_template模板文件静力荷载工况：二期（防撞墙等）梁单元荷载首行位置
-stld_crossbeam_pos=951# data_template模板文件静力荷载工况：横梁荷载梁单元荷载首行位置
-stld_temup_pos=992# data_template模板文件静力荷载工况：温度梯度（升温）首行位置
-stld_temdown_pos=1327# data_template模板文件静力荷载工况：温度梯度（降温）首行位置
-lane_pos_1=1679# data_template模板文件车道线：单车道首行位置
-lane_pos_2=1707# data_template模板文件车道线：车道1（带系数）首行位置
-mld_pos=1888# data_template模板文件移动荷载工况首行位置
-sm_group_pos=1892# data_template模板文件沉降组首行位置
+steel_strand_pos=681# data_template模板文件钢绞线束形布置首行位置
+stld_pave_pos=734# data_template模板文件静力荷载工况：二期（铺装）梁单元荷载首行位置
+stld_bumperwall_pos=826# data_template模板文件静力荷载工况：二期（防撞墙等）梁单元荷载首行位置
+
+stld_prestress_pos=914# data_template模板文件静力荷载工况：预应力荷载首行位置
+
+stld_crossbeam_pos=925# data_template模板文件静力荷载工况：横梁荷载梁单元荷载首行位置
+stld_temup_pos=966# data_template模板文件静力荷载工况：温度梯度（升温）首行位置
+stld_temdown_pos=1301# data_template模板文件静力荷载工况：温度梯度（降温）首行位置
+lane_pos_1=1653# data_template模板文件车道线：单车道首行位置
+lane_pos_2=1681# data_template模板文件车道线：车道1（带系数）首行位置
+mld_pos=1862# data_template模板文件移动荷载工况首行位置
+sm_group_pos=1866# data_template模板文件沉降组首行位置
 # ~ dgn_rebar_psc_pos=2088# data_template模板文件PSC截面DGN钢筋首行位置
 # ~ manager_rebar_pos=2146# data_template模板文件SECTION-MANAGER-REBAR首行位置
 # ~ manager_rebar_design_pos=2216# data_template模板文件SECTION-MANAGER-REBAR DESIGN首行位置
-span_pos=2081# data_template模板文件结构跨度首行位置
+span_pos=2055# data_template模板文件结构跨度首行位置
 # 样板信息结束
 
 # 修改节点
@@ -54,25 +57,34 @@ node_str=mct.node_str_build(node_x, node_z)
 data_template[node_pos:node_pos+len(node_str)]=node_str# 修改节点坐标，行号不变
 # 修改箍筋
 rebar_str=mct.sec_rebar_str_build(web_quantity, stirrups_diameter)
-data_template=mct.data_template_edit_rebar(rebar_str, sec_pos_rebar, data_template)
+data_template=mct.data_template_edit_rebar(rebar_str, sec_pos_rebar, data_template)# 修改箍筋，行号不变
 # 修改截面
 sec_pro_total=[[]]*14
 sec_poly_total=[[]]*14
 for i in range(14):
 	sec_pro_total[i], sec_poly_total[i]=sec.section_build(bridge_width[i], web_quantity, web_thickness[i], beam_height)
-data_template, row_add=mct.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)
+data_template, row_add=mct.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)# 修改截面，行号增加
 # 修改钢束
-steel_x, steel_y, steel_r, steel_count=steel.steel_strand_build(span, end_seams, web_quantity, beam_height)
+steel_x, steel_y, steel_r, steel_count, steel_det=steel.steel_strand_build(span, end_seams, web_quantity, beam_height)
 steel_str=[[]]*len(steel_x)
+steel_strand_pos+=row_add
 for i in range(len(steel_x)):
-	steel_str[i]=mct.steel_strand_str(steel_x[i], steel_y[i], steel_r[i], steel_count[i])
-data_template, row_add=mct.data_template_edit_steel(steel_str, steel_strand_pos, row_add, data_template)
+	steel_str[i]=mct.steel_strand_str(steel_x[i], steel_y[i], steel_r[i], steel_count[i], steel_det[i])
+	data_template=mct.ins_list(steel_strand_pos, steel_str[i], data_template)# 修改钢束，行号增加
+	steel_strand_pos+=len(steel_str[i])
+	row_add+=len(steel_str[i])
 # 修改二期铺装及防撞墙
 pave_load, bumperwall_load=stld.pave_bumperwall_load(bumperwall_width, bridge_width, node_x)
 pave_str=mct.stld_str(pave_load)
 bumperwall_str=mct.stld_str(bumperwall_load)
 data_template[(stld_pave_pos+row_add):(stld_pave_pos+row_add+len(pave_str))]=pave_str# 修改二期铺装荷载，行号不变
 data_template[(stld_bumperwall_pos+row_add):(stld_bumperwall_pos+row_add+len(bumperwall_str))]=bumperwall_str# 修改二期防撞墙荷载，行号不变
+
+# 修改预应力荷载
+prestress_str=mct.stld_prestress(steel_det)
+data_template=mct.ins_list(stld_prestress_pos+row_add, prestress_str, data_template)# 修改预应力荷载，行号增加
+row_add+=len(prestress_str)
+
 # 修改横梁荷载
 crossbeam_load, plate_load=stld.crossbeam_plate_load(web_quantity, bridge_width)
 crossbeam_str=mct.stld_crossbeam_str(crossbeam_load, plate_load)
