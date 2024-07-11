@@ -11,8 +11,8 @@ with open(file_name, 'r') as file_template:
 
 # 前置数据开始
 bridge_name='test'
-span=[30, 30, 30]# 跨径组合，3跨为例
-beam_height=2# 梁高
+span=[40, 40, 40]# 跨径组合，3跨为例
+beam_height=2.3# 梁高
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
 pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
 end_seams=[0.05, 0.05]# 梁端缝宽
