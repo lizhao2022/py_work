@@ -65,7 +65,7 @@ for i in range(14):
 	sec_pro_total[i], sec_poly_total[i]=sec.section_build(bridge_width[i], web_quantity, web_thickness[i], beam_height)
 data_template, row_add=mct.data_template_edit_section(sec_pro_total, sec_poly_total, sec_pos, sec_pos_dgn, data_template)# 修改截面，行号增加
 # 修改钢束
-steel_x, steel_y, steel_r, steel_count, steel_det=steel.steel_strand_build(span, end_seams, web_quantity, beam_height)
+steel_x, steel_y, steel_r, steel_count, steel_det=steel.steel_strand_build(span, end_seams, web_quantity, beam_height, node_x)
 steel_str=[[]]*len(steel_x)
 steel_strand_pos+=row_add
 for i in range(len(steel_x)):
