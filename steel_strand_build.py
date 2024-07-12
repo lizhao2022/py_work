@@ -1,5 +1,5 @@
 import math
-import nimpy as np
+import numpy as np
 
 def steel_det(b_h):# ¸ÖÊøĞÎ×´Ãû³Æ
 	if b_h >=2.5:
@@ -37,6 +37,12 @@ def steel_det(b_h):# ¸ÖÊøĞÎ×´Ãû³Æ
 		steel_det[12]=['T4A', 'N-9', '1to81', 'BOTH', '1.35e+06', '1.35e+06']
 	return steel_det
 
+def steel_r(x):# ¶¥µ×°åÊø°ë¾¶
+	r=[[]]*len(x)
+	for i in range(len(r)):
+		r[i]=[0]+[6]*(len(x[i])-2)+[0]
+	return r
+
 def steel_f(xe, xp, sp1, sp2, sp3, ye, yp, ys1, ys2, ys3, ae, ap, bh):# ¼ÆËã¸¹°åÊø×ø±ê
 	yk=[ye, -bh+ys1, yp, -bh+ys2, yp, -bh+ys3, ye]
 	a=[ap]*6
@@ -50,7 +56,7 @@ def steel_f(xe, xp, sp1, sp2, sp3, ye, yp, ys1, ys2, ys3, ae, ap, bh):# ¼ÆËã¸¹°å
 	y=[ye, -bh+ys1, -bh+ys1, yp, yp, -bh+ys2, -bh+ys2, yp, yp, -bh+ys3, -bh+ys3, ye]
 	return x, y
 
-def steel_d_2(bh):# Áº¸ß2-2.3µ×°åÊø×ø±ê
+def steel_d_2(sp1, sp2, sp3, bh):# Áº¸ß2-2.3µ×°åÊø×ø±ê
 	# µ×°åÊøĞÎ×´Éè¼Æ²ÎÊı
 	xd_l=[4, 7, 4, 2]# Í¨³¤ÊøD1Ë®Æ½¿ØÖÆµã¾àÀë[¶Ë²¿£¬¶Ë²¿£¬Ö§µã£¬Ö§µã]
 	xd_s=[0.15, 3.15, 12.5, 9.5]# ¶ÌÊøD2D3Ë®Æ½¿ØÖÆµã¾àÀë
@@ -59,34 +65,40 @@ def steel_d_2(bh):# Áº¸ß2-2.3µ×°åÊø×ø±ê
 	yd_s=[0.3, 0.14, 0.14, 0.78]# ¶ÌÊøD2D3ÊúÏòÎ»ÖÃ
 	yd_a=[0.3, 0.14, 0.14, 0.6]# ¶ÌÊøD2AD3AÊúÏòÎ»ÖÃ
 	# ½¨Á¢µ×°åÊøx×ø±ê
-	d1_x=[xd_l[0], xd_l[1], span_1-xd_l[2], span_1-xd_l[3], span_1+xd_l[3], span_1+xd_l[2], span_2-xd_l[2], span_2-xd_l[3], span_2+xd_l[3], span_2+xd_l[2], span_3-xd_l[1], span_3-xd_l[0]]
-	d2_x=[xd_s[0], xd_s[1], span_1-xd_s[2], span_1-xd_s[3]]
+	d1_x=[xd_l[0], xd_l[1], sp1-xd_l[2], sp1-xd_l[3], sp1+xd_l[3], sp1+xd_l[2], sp2-xd_l[2], sp2-xd_l[3], sp2+xd_l[3], sp2+xd_l[2], sp3-xd_l[1], sp3-xd_l[0]]
+	d2_x=[xd_s[0], xd_s[1], sp1-xd_s[2], sp1-xd_s[3]]
 	d2a_x=[i+j for i, j in zip(xd_a, d2_x)]
-	d3_x=[span_2+xd_s[3], span_2+xd_s[2], span_3-xd_s[1], span_3-xd_s[0]]
+	d3_x=[sp2+xd_s[3], sp2+xd_s[2], sp3-xd_s[1], sp3-xd_s[0]]
 	d3a_x=[-i+j for i, j in zip(list(reversed(xd_a)), d3_x)]
 	# ½¨Á¢µ×°åÊøy×ø±ê
 	d1_y=[yd_l[0], yd_l[1], yd_l[1], yd_l[2], yd_l[2], yd_l[1], yd_l[1], yd_l[2], yd_l[2], yd_l[1], yd_l[1], yd_l[0]]
-	d1_y=[-beam_height+i for i in d1_y]
-	d2_y=[-beam_height+i for i in yd_s]
-	d2a_y=[-beam_height+i for i in yd_a]
-	d3_y=[-beam_height+i for i in list(reversed(yd_s))]
-	d3a_y=[-beam_height+i for i in list(reversed(yd_a))]
-	return x, y
+	d1_y=[-bh+i for i in d1_y]
+	d2_y=[-bh+i for i in yd_s]
+	d2a_y=[-bh+i for i in yd_a]
+	d3_y=[-bh+i for i in list(reversed(yd_s))]
+	d3a_y=[-bh+i for i in list(reversed(yd_a))]
+	x=[d1_x, d2_x, d2a_x, d3_x, d3a_x]
+	y=[d1_y, d2_y, d2a_y, d3_y, d3a_y]
+	r=steel_r(x)
+	return x, y, r
 
-def steel_d_3(bh):#Áº¸ß2.5µ×°åÊø×ø±ê
+def steel_d_3(sp1, sp2, sp3, bh):#Áº¸ß2.5µ×°åÊø×ø±ê
 	# µ×°åÊøĞÎ×´Éè¼Æ²ÎÊı
 	xd_1=[14, 17, -17, -14]# D1Ë®Æ½¿ØÖÆµã¾àÀë
 	xd_1a=[10.5, 13.5, -13.5, -10.5]# D1aË®Æ½¿ØÖÆµã¾àÀë
 	yd_1=[0.62, 0.14, 0.14, 0.62]# D1ÊúÏòÎ»ÖÃ
 	yd_1a=[0.62, 0.14, 0.14, 0.62]# D1aÊúÏòÎ»ÖÃ
 	# ½¨Á¢µ×°åÊø×ø±ê
-	d1_x=[span_1+xd_1[0], span_1+xd_1[1], span_2+xd_1[2], span_2+xd_1[3]]
-	d1a_x=[span_1+xd_1a[0], span_1+xd_1a[1], span_2+xd_1a[2], span_2+xd_1a[3]]
-	d1_y=[-beam_height+i for i in d1_y]
-	d1_ya=[-beam_height+i for i in d1_ya]
-	return x, y
+	d1_x=[sp1+xd_1[0], sp1+xd_1[1], sp2+xd_1[2], sp2+xd_1[3]]
+	d1a_x=[sp1+xd_1a[0], sp1+xd_1a[1], sp2+xd_1a[2], sp2+xd_1a[3]]
+	d1_y=[-bh+i for i in yd_1]
+	d1a_y=[-bh+i for i in yd_1a]
+	x=[d1_x, d1a_x]
+	y=[d1_y, d1a_y]
+	r=steel_r(x)
+	return x, y, r
 
-def steel_t_2(bh):# Áº¸ß2-2.3¶¥°åÊø×ø±ê
+def steel_t_2(sp1, sp2, sp3):# Áº¸ß2-2.3¶¥°åÊø×ø±ê
 	# ¶¥°åÊøĞÎ×´Éè¼Æ²ÎÊı
 	xt_1=[10.5, 7.5]
 	xt_2=[0.15, 2, 2.7, 7.5, 10.5]
@@ -96,20 +108,23 @@ def steel_t_2(bh):# Áº¸ß2-2.3¶¥°åÊø×ø±ê
 	yt_2=[-0.22, -0.18, -0.7]
 	yt_c=-0.18
 	# ½¨Á¢¶¥°åÊøx×ø±ê
-	t1_x=[span_1-xt_1[0], span_1-xt_1[1], span_2+xt_1[1], span_2+xt_1[0]]
-	t2_x=[xt_2[0], xt_2[1], xt_2[2], span_1+xt_2[3], span_1+xt_2[4]]
-	t3_x=[span_2-xt_3[0], span_2-xt_3[1], span_3-xt_3[2], span_3-xt_3[3], span_3-xt_3[4]]
-	t4_x=[xt_c[0], span_3-xt_c[0]]
-	t4a_x=[xt_c[1], span_3-xt_c[1]]
+	t1_x=[sp1-xt_1[0], sp1-xt_1[1], sp2+xt_1[1], sp2+xt_1[0]]
+	t2_x=[xt_2[0], xt_2[1], xt_2[2], sp1+xt_2[3], sp1+xt_2[4]]
+	t3_x=[sp2-xt_3[0], sp2-xt_3[1], sp3-xt_3[2], sp3-xt_3[3], sp3-xt_3[4]]
+	t4_x=[xt_c[0], sp3-xt_c[0]]
+	t4a_x=[xt_c[1], sp3-xt_c[1]]
 	# ½¨Á¢¶¥°åÊøy×ø±ê
 	t1_y=[yt_1[0], yt_1[1], yt_1[1], yt_1[0]]
 	t2_y=[yt_2[0], yt_2[0], yt_2[1], yt_2[1], yt_2[2]]
 	t3_y=list(reversed(t2_y))
 	t4_y=[yt_c, yt_c]
 	t4a_y=[yt_c, yt_c]
-	return x, y
+	x=[t1_x, t2_x, t3_x, t4_x, t4a_x]
+	y=[t1_y, t2_y, t3_y, t4_y, t4a_y]
+	r=steel_r(x)
+	return x, y, r
 
-def steel_t_3(bh):# Áº¸ß2.5¶¥°åÊø×ø±ê
+def steel_t_3(sp1, sp2, sp3):# Áº¸ß2.5¶¥°åÊø×ø±ê
 	# ¶¥°åÊøĞÎ×´Éè¼Æ²ÎÊı
 	xt_1=[0.15, 2, 2.7]
 	xt_2=[15.5, 12, 8.5, 5]
@@ -118,49 +133,19 @@ def steel_t_3(bh):# Áº¸ß2.5¶¥°åÊø×ø±ê
 	yt_2=[-0.7, -0.7, -0.65, -0.7]
 	yt_c=-0.18
 	# ½¨Á¢¶¥°åÊø×ø±ê
-	t1_x=[xt_1[0], xt_1[1], xt_1[2], span_3-xt_1[2], span_3-xt_1[1], span_3-xt_1[0]]
+	t1_x=[xt_1[0], xt_1[1], xt_1[2], sp3-xt_1[2], sp3-xt_1[1], sp3-xt_1[0]]
 	t1_y=[yt_1[0], yt_1[1], yt_1[2], yt_1[2], yt_1[1], yt_1[0]]
 	t2_x=[[]]*len(xt_2)*2
 	t2_y=[[]]*len(xt_2)*2
 	for i in range(len(xt_2)):
-		t2_x[i]=[span_1-xt_2[i]-xt_c, span_1-xt_2[i], span_1+xt_2[i]+span_1+xt_2[i]+xt_c]
-		t2_x[i+4]=[span_2-xt_2[i]-xt_c, span_2-xt_2[i], span_2+xt_2[i]+span_2+xt_2[i]+xt_c]
+		t2_x[i]=[sp1-xt_2[i]-xt_c, sp1-xt_2[i], sp1+xt_2[i], sp1+xt_2[i]+xt_c]
+		t2_x[i+4]=[sp2-xt_2[i]-xt_c, sp2-xt_2[i], sp2+xt_2[i], sp2+xt_2[i]+xt_c]
 		t2_y[i]=[yt_2[i], yt_c, yt_c, yt_2[i]]
 		t2_y[i+4]=[yt_2[i], yt_c, yt_c, yt_2[i]]
-	return x, y
-
-def steel_r(bh):# È·¶¨¸ÖÊøÍäÇú°ë¾¶
-	if bh >=2.5:
-		#¡¡¸ÖÊøÍäÇú°ë¾¶²ÎÊı
-		dr=6
-		fr=30
-		fra=[20, 20, 15, 10, 6]
-		tr=6
-		d1_r=[0, dr, dr, 0]
-		f_r=[[]]*len(xf_ends)
-		for i in range(len(f_r)):
-			f_r[i]=[0, fr, fr, fra[i], fra[i], fr, fr, fra[i], fra[i], fr, fr, 0]
-		t1_r=[0, tr, tr, tr, tr, 0]
-		t2_r=[[0, tr, tr, 0]]*len(xt_2)*2
-	else:
-		#¡¡¸ÖÊøÍäÇú°ë¾¶²ÎÊı
-		dr=6
-		tr=6
-		d1_r=[dr]*12
-		d1_r[0]=0
-		d1_r[-1]=0
-		#¡¡½¨Á¢¸ÖÊøÍäÇú°ë¾¶
-		d2_r=[0, dr, dr, 0]
-		d2a_r=[0, dr, dr, 0]
-		d3_r=[0, dr, dr, 0]
-		d3a_r=[0, dr, dr, 0]
-
-		t1_r=[0, tr, tr, 0]
-		t2_r=[0, tr, tr, tr, 0]
-		t3_r=[0, tr, tr, tr, 0]
-		t4_r=[0, 0]
-		t4a_r=[0, 0]
-	return r
+	x=[t1_x]+t2_x
+	y=[t1_y]+t2_y
+	r=steel_r(x)
+	return x, y, r
 
 def steel_det_elenum(std, sx, nx):# ¼ÆËã¸ÖÊøÆğÖÕµã¶ÔÓ¦µ¥ÔªºÅ
 	for i in range(len(std)):
@@ -175,7 +160,7 @@ def steel_strand_build(span, end_seams, web, beam_height, node_x):
 	steel_detail=steel_det(beam_height)
 	# ¸¹°åÊøĞÎ×´Éè¼Æ²ÎÊı
 	if beam_height >=2.5:
-		xf_ends=[0.15, 0.15, 0.15, 0.15, 0.15, 0.15]# ¸¹°åÊø¶Ë²¿ÆğÖÕµãË®Æ½Î»ÖÃ
+		xf_ends=[0.15, 0.15, 0.15, 0.15, 0.15]# ¸¹°åÊø¶Ë²¿ÆğÖÕµãË®Æ½Î»ÖÃ
 		xf_pivot=[3.8, 3.3, 2.8, 2.3, 1.8]# ¸¹°åÊøÖĞÖ§µãÆğÖÕµãË®Æ½Î»ÖÃ
 		yf_ends=[-0.45, -0.85, -1.2, -1.55, -1.9]#¡¡¸¹°åÊø¶Ë²¿ÊúÏòÎ»ÖÃ
 		yf_pivot=[-0.18, -0.46, -0.71, -0.92, -1.13]# ¸¹°åÊøÖĞÖ§µãÊúÏòÎ»ÖÃ
@@ -184,7 +169,7 @@ def steel_strand_build(span, end_seams, web, beam_height, node_x):
 		yf_span_1=[0.94, 0.74, 0.54, 0.34, 0.14]# ¸¹°åÊø±ß¿ç¿çÖĞÊúÏò¾àÀë
 		yf_span_2=[0.8, 0.62, 0.46, 0.3, 0.14]# ¸¹°åÊøÖĞ¿ç¿çÖĞÊúÏò¾àÀë
 		yf_span_3=[0.94, 0.74, 0.54, 0.34, 0.14]# ¸¹°åÊø±ß¿ç¿çÖĞÊúÏò¾àÀë
-		f_r=[[0]+[30]*10+[0]]*5# ¸¹°åÊøÍäÇú°ë¾¶
+		f_r=[[0]+[30]*10+[0]]*len(xf_ends)# ¸¹°åÊøÍäÇú°ë¾¶
 		fra=[20, 20, 15, 10, 6]
 		for i in range(5):
 			f_r[i][3:5]=[fra[i]]*2
@@ -199,18 +184,21 @@ def steel_strand_build(span, end_seams, web, beam_height, node_x):
 		yf_span_1=[0.46, 0.3, 0.14]# ¸¹°åÊø±ß¿ç¿çÖĞÊúÏò¾àÀë
 		yf_span_2=[0.46, 0.3, 0.14]# ¸¹°åÊøÖĞ¿ç¿çÖĞÊúÏò¾àÀë
 		yf_span_3=[0.46, 0.3, 0.14]# ¸¹°åÊø±ß¿ç¿çÖĞÊúÏò¾àÀë	
-		f_r=[[0]+[10]*10+[0]]*3#¡¡¸¹°åÊøÍäÇú°ë¾¶
+		if beam_height >=2.3:
+			yf_span_1=[0.2, 0.5, 0.8]
+			yf_span_3=[0.2, 0.5, 0.8]
+		f_r=[[0]+[10]*10+[0]]*len(xf_ends)#¡¡¸¹°åÊøÍäÇú°ë¾¶
 	# ½¨Á¢¸¹°åÊø×ø±ê
 	f_x=[[]]*len(xf_ends)
 	f_y=[[]]*len(xf_ends)
 	for i in range(len(xf_ends)):
 		f_x[i], f_y[i]=steel_f(xf_ends[i], xf_pivot[i], span_1, span_2, span_3, yf_ends[i], yf_pivot[i], yf_span_1[i], yf_span_2[i], yf_span_3[i], angle_f_ends[i], angle_f_pivot[i], beam_height)
 	if beam_height >=2.5:
-		d_x, d_y, d_r=steel_d_3(beam_height)
-		t_x, t_y, t_r=steel_t_3(beam_height)
+		d_x, d_y, d_r=steel_d_3(span_1, span_2, span_3, beam_height)
+		t_x, t_y, t_r=steel_t_3(span_1, span_2, span_3)
 	else:
-		d_x, d_y, d_r=steel_d_2(beam_height)
-		t_x, t_y, d_r=steel_t_2(beam_height)
+		d_x, d_y, d_r=steel_d_2(span_1, span_2, span_3, beam_height)
+		t_x, t_y, t_r=steel_t_2(span_1, span_2, span_3)
 	# ÕûÀíËùÓĞ¸ÖÊø×ø±ê¼°°ë¾¶
 	steel_x=d_x+f_x+t_x
 	steel_y=d_y+f_y+t_y

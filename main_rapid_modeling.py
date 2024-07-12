@@ -11,8 +11,8 @@ with open(file_name, 'r') as file_template:
 
 # 前置数据开始
 bridge_name='test'
-span=[40, 40, 40]# 跨径组合，3跨为例
-beam_height=2.3# 梁高
+span=[30, 50, 30]# 跨径组合，3跨为例
+beam_height=2.5# 梁高
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
 pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
 end_seams=[0.05, 0.05]# 梁端缝宽
@@ -86,7 +86,7 @@ data_template=mct.ins_list(stld_prestress_pos+row_add, prestress_str, data_templ
 row_add+=len(prestress_str)
 
 # 修改横梁荷载
-crossbeam_load, plate_load=stld.crossbeam_plate_load(web_quantity, bridge_width)
+crossbeam_load, plate_load=stld.crossbeam_plate_load(web_quantity, bridge_width, beam_height)
 crossbeam_str=mct.stld_crossbeam_str(crossbeam_load, plate_load)
 data_template[(stld_crossbeam_pos+row_add):(stld_crossbeam_pos+row_add+len(crossbeam_str))]=crossbeam_str# 修改二期铺装荷载，行号不变
 # 修改温度梯度荷载

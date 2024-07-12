@@ -33,7 +33,7 @@ def pave_bumperwall_load(bumperwall_width, bridge_width, node_x):
 		pave_load_x[sta:end+1]=np.interp(node_x[sta:end+1], xp, fp)# 按节点位置线性插值
 	return pave_load_x, bumperwall_load
 
-def crossbeam_plate_load(web_quantity, bridge_width):
+def crossbeam_plate_load(web_quantity, bridge_width, bh):
 	'''# 计算横梁荷载及顶底板加腋荷载'''
 	plate_width=[0]*4
 	plate_width[0]=bridge_width[0]
@@ -41,7 +41,7 @@ def crossbeam_plate_load(web_quantity, bridge_width):
 	plate_width[2]=bridge_width[8]/2+bridge_width[9]/2
 	plate_width[3]=bridge_width[13]
 	box_width=[(x-5.2*2-web_quantity*0.8) for x in plate_width]# 计算中间箱室总宽度
-	crossbeam_load=[(1.5*2+x*(2-0.28-0.22)-(web_quantity-1)*(1*0.2+0.6*0.2))*(-26) for x in box_width]# 两侧小箱面积1.5*2
+	crossbeam_load=[(1.5*2+x*(bh-0.28-0.22)-(web_quantity-1)*(1*0.2+0.6*0.2))*(-26) for x in box_width]# 两侧小箱面积1.5*2
 	plate_load=[(x*(0.2+0.2)+1.8*2*0.2)*(-26) for x in box_width]# 顶底板加腋厚0.2+0.2，两侧小箱顶板加腋0.2
 	return crossbeam_load, plate_load
 
