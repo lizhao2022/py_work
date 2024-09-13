@@ -2,7 +2,7 @@ from tkinter import filedialog
 import tkinter as tk
 import os
 import json
-import rapid_modeling
+import rapid_modeling as rpm
 class Controller:
 	# 导入UI类后，替换以下的 object 类型，将获得 IDE 属性提示功能
 	ui: object
@@ -182,13 +182,14 @@ class Controller:
 			"bumperwall_width": [ float(x) for x in BPW ], 
 			"bridge_width": [ float(x) for x in BW ]
 		}
-		rapid_modeling
-		
-		
+		"""
+		执行建模程序
+		"""
+		mctfile=rpm.modeling(tem_dic)		
 		file_path=filedialog.asksaveasfilename(defaultextension=".mct", filetypes=[("Midas Files", "*.mct"), ("All Files", "*.*")])
 		if file_path:
 			directory=os.path.dirname(file_path)
 			file_name=os.path.basename(file_path)
 			with open(file_name, 'w') as file_object:
-				file_object.writelines(data_template)
+				file_object.writelines(mctfile)
 	
