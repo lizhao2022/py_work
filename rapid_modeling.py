@@ -10,7 +10,7 @@ with open(file_name, 'r') as file_template:
 	data_template=file_template.readlines()
 
 # 前置数据开始
-bridge_name='test'
+# ~ bridge_name='test'
 span=[30, 32, 30]# 跨径组合，3跨为例
 beam_height=2# 梁高
 crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
@@ -19,11 +19,11 @@ end_seams=[0.1]*2# 梁端缝宽,2端
 web_thickened_length=[5.4, 7.4, 7.4, 7.4, 7.4, 5.4]# 腹板加厚段长度，每跨2处，3跨6处
 web_thickening_length=[3.6]*6# 腹板变厚段长度，每跨2处，3跨6处
 plate_thickening_length=[1.2]*6# 顶底板加腋长度，每跨2处，3跨6处
-
 bridge_width=[34.8]*14# 14个控制截面宽度
-web_thickness=[0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8]# 14个控制截面腹板厚度
 web_quantity=7# 腹板数量
 bumperwall_width=[0.525, 0.65, 0.525]# 防撞墙宽度
+# 前置数据输入结束
+web_thickness=[0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8, 0.5, 0.5, 0.8, 0.8]# 14个控制截面腹板厚度
 stirrups_diameter=14# 抗剪箍筋直径
 # 前置数据结束
 
@@ -121,6 +121,6 @@ span_str=mct.span_str(span, pedestal_position, end_seams)
 data_template[(span_pos+row_add):(span_pos+row_add+len(span_str))]=span_str# 修改结构跨度信息，行号不变
 
 # 生成模型文件，即midas软件的.mct文件
-project_name=bridge_name+'.mct'
-with open(project_name, 'w') as file_object:
-	file_object.writelines(data_template)
+# ~ project_name=bridge_name+'.mct'
+# ~ with open(project_name, 'w') as file_object:
+	# ~ file_object.writelines(data_template)
