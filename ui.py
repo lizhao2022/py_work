@@ -92,7 +92,7 @@ class WinGUI(Window):
 		self.title("现浇箱梁建模助手")
 		# 设置窗口大小、居中
 		width = 960
-		height = 540
+		height = 600
 		screenwidth = self.winfo_screenwidth()
 		screenheight = self.winfo_screenheight()
 		geometry = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
@@ -139,12 +139,12 @@ class WinGUI(Window):
 		widget.configure(style=ctl)
 		return ctl
 	def __tk_canvas_section_display(self,parent):
-		canvas = Canvas(parent,bg="#aaa")
-		canvas.place(x=460, y=145, width=460, height=150)
+		canvas = Canvas(parent,bg="#aaa", relief='ridge', bd=2)
+		canvas.place(x=460, y=135, width=475, height=145)
 		return canvas
 	def __tk_canvas_elevation_display(self,parent):
-		canvas = Canvas(parent,bg="#aaa")
-		canvas.place(x=20, y=410, width=900, height=120)
+		canvas = Canvas(parent,bg="#aaa", relief='ridge', bd=2)
+		canvas.place(x=20, y=410, width=915, height=180)
 		return canvas
 	def __tk_input_L1(self,parent):
 		ipt = Entry(parent, bootstyle="default")
@@ -424,11 +424,11 @@ class WinGUI(Window):
 		return btn
 	def __tk_label_elevation_name(self,parent):
 		label = Label(parent,text="立面图",anchor="center", bootstyle="default")
-		label.place(x=870, y=380, width=55, height=25)
+		label.place(x=880, y=375, width=55, height=25)
 		return label
 	def __tk_label_section_name(self,parent):
 		label = Label(parent,text="断面图",anchor="center", bootstyle="default")
-		label.place(x=870, y=300, width=55, height=25)
+		label.place(x=880, y=105, width=55, height=25)
 		return label
 	def __tk_label_SZ(self,parent):
 		label = Label(parent,text="支座梁端距",anchor="center", bootstyle="default")

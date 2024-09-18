@@ -1,3 +1,4 @@
+from PIL import Image, ImageTk
 from tkinter import filedialog 
 import tkinter as tk
 import os
@@ -13,6 +14,9 @@ class Controller:
 		得到UI实例，对组件进行初始化配置
 		"""
 		self.ui = ui
+		self.img= Image.open(r'立面图.jpg')
+		self.image_file=ImageTk.PhotoImage(self.img)
+		self.image=self.ui.tk_canvas_elevation_display.create_image(450,90,anchor='center',image=self.image_file)
 		# TODO 组件初始化 赋值操作		
 	def f_open(self,evt):
 		file_path=filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("Json Files", "*.json"), ("All Files", "*.*")])
