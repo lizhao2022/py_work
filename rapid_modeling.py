@@ -5,11 +5,10 @@ import static_load_cases as stld
 import mct_file_edit as mct
 
 def modeling(tem_dic):
-# 读取模板mct文件
+	# 读取模板mct文件
 	file_name='template.mct'
 	with open(file_name, 'r') as file_template:
 		data_template=file_template.readlines()
-	
 	"""
 	前置数据开始
 	"""
@@ -41,9 +40,7 @@ def modeling(tem_dic):
 	steel_strand_pos=681# data_template模板文件钢绞线束形布置首行位置
 	stld_pave_pos=734# data_template模板文件静力荷载工况：二期（铺装）梁单元荷载首行位置
 	stld_bumperwall_pos=826# data_template模板文件静力荷载工况：二期（防撞墙等）梁单元荷载首行位置
-	
 	stld_prestress_pos=914# data_template模板文件静力荷载工况：预应力荷载首行位置
-	
 	stld_crossbeam_pos=925# data_template模板文件静力荷载工况：横梁荷载梁单元荷载首行位置
 	stld_temup_pos=966# data_template模板文件静力荷载工况：温度梯度（升温）首行位置
 	stld_temdown_pos=1301# data_template模板文件静力荷载工况：温度梯度（降温）首行位置
@@ -51,14 +48,11 @@ def modeling(tem_dic):
 	lane_pos_2=1681# data_template模板文件车道线：车道1（带系数）首行位置
 	mld_pos=1862# data_template模板文件移动荷载工况首行位置
 	sm_group_pos=1866# data_template模板文件沉降组首行位置
-	# ~ dgn_rebar_psc_pos=2088# data_template模板文件PSC截面DGN钢筋首行位置
-	# ~ manager_rebar_pos=2146# data_template模板文件SECTION-MANAGER-REBAR首行位置
-	# ~ manager_rebar_design_pos=2216# data_template模板文件SECTION-MANAGER-REBAR DESIGN首行位置
 	span_pos=2055# data_template模板文件结构跨度首行位置
 	# 样板信息结束
 	
 	# 修改节点
-	node_x, node_z=node.node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length)
+	node_x, node_z=node.node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length, beam_height)
 	node_str=mct.node_str_build(node_x, node_z)
 	data_template[node_pos:node_pos+len(node_str)]=node_str# 修改节点坐标，行号不变
 	# 修改箍筋
@@ -115,20 +109,8 @@ def modeling(tem_dic):
 	# 修改沉降组
 	sm_group_str=mct.sm_group_str(span)
 	data_template[(sm_group_pos+row_add):(sm_group_pos+row_add+len(sm_group_str))]=sm_group_str# 修改沉降组信息，行号不变
-	# ~ # 修改DGN-REBAR-PSC
-	# ~ data_template=mct.data_template_edit_rebar(rebar_str, dgn_rebar_psc_pos+row_add, data_template)# 修改DGN-REBAR-PSC信息，行号不变
-	# ~ # 修改SECTION-MANAGER-REBAR
-	# ~ manager_str=mct.sec_manager_rebar_str(web_quantity, stirrups_diameter)
-	# ~ data_template[(manager_rebar_pos+row_add):(manager_rebar_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR信息，行号不变
-	# ~ # 修改SECTION-MANAGER-REBAR DESIGN
-	# ~ data_template[(manager_rebar_design_pos+row_add):(manager_rebar_design_pos+row_add+len(manager_str))]=manager_str# 修改SECTION-MANAGER-REBAR DESIGN信息，行号不变
 	# 修改结构跨度
 	span_str=mct.span_str(span, pedestal_position, end_seams)
 	data_template[(span_pos+row_add):(span_pos+row_add+len(span_str))]=span_str# 修改结构跨度信息，行号不变
 	
 	return data_template
-
-# 生成模型文件，即midas软件的.mct文件
-# ~ project_name=bridge_name+'.mct'
-# ~ with open(project_name, 'w') as file_object:
-	# ~ file_object.writelines(data_template)

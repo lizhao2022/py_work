@@ -1,9 +1,8 @@
 # 程序用于自动划分节点x坐标，应用范围：直线3跨连续梁
 # 输入参数为：跨径组合、横梁宽度、支座梁端距、梁端缝宽、腹板加厚段长度、腹板变厚段长度、顶底板加腋长度
 # 输出参数为：列表node_x，表示连续梁单元节点及虚拟支座节点x坐标
-import json
 
-def node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length):
+def node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length, beam_height):
 	node_x=list(range(86))# 初始划分主梁节点，3跨标准82节点，81个梁单元，4个虚拟支座节点
 	
 	node_x[0]=0# 首节点位置
@@ -112,23 +111,6 @@ def node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_
 	node_x[77]=node_x[72]+(node_x[78]-node_x[72])/6*5
 	
 	node_z=[0 for i in range(len(node_x))]
-	node_z[-4:-1]=[-2]*4# 后4项为虚拟支座节点
+	node_z[-4:-1]=[-beam_height]*4# 后4项为虚拟支座节点
 	
 	return node_x, node_z
-
-# ~ span=[30, 30, 30]# 跨径组合，3跨为例
-# ~ crossbeam=[2, 3, 3, 2]# 横梁宽度，3跨4支点为例
-# ~ pedestal_position=[0.6, 0.6]# 边支座距梁端，2边支点
-# ~ end_seams=[0.05, 0.05]# 梁端缝宽
-# ~ web_thickened_length=[7.4, 4.4, 4.4, 4.4, 4.4, 7.4]# 腹板加厚段长度，每跨2处，3跨6处
-# ~ web_thickening_length=[3.6, 3.6, 3.6, 3.6, 3.6, 3.6]# 腹板变厚段长度，每跨2处，3跨6处
-# ~ plate_thickening_length=[1.2, 1, 1, 1, 1, 1.2]# 顶底板加腋长度，每跨2处，3跨6处
-
-# ~ node_x, node_z=node_partition(span, crossbeam, pedestal_position, end_seams, web_thickened_length, web_thickening_length, plate_thickening_length)
-
-# ~ filename='node_x.json'
-# ~ with open(filename, 'w') as f_obj:
-	# ~ json.dump(node_x, f_obj)
-# ~ filename='node_z.json'
-# ~ with open(filename, 'w') as f_obj:
-	# ~ json.dump(node_z, f_obj)
