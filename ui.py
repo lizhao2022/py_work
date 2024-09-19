@@ -430,7 +430,7 @@ class WinGUI(Window):
 		return label
 	def __tk_canvas_section_display(self,parent):
 		canvas = Canvas(parent,bg="#aaa", relief='ridge', bd=2)
-		canvas.place(x=460, y=135, width=475, height=145)
+		canvas.place(x=460, y=135, width=475, height=175)
 		return canvas
 	def __tk_canvas_elevation_display(self,parent):
 		canvas = Canvas(parent,bg="#aaa", relief='ridge', bd=2)
