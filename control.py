@@ -17,7 +17,7 @@ class Controller:
 		self.img1= Image.open(r'立面图.jpg')
 		self.image_file1=ImageTk.PhotoImage(self.img1)
 		self.image=self.ui.tk_canvas_elevation_display.create_image(450,90,anchor='center',image=self.image_file1)
-		self.img2= Image.open(r'断面图H2.5.jpg')
+		self.img2= Image.open(r'断面图.jpg')
 		self.image_file2=ImageTk.PhotoImage(self.img2)
 		self.image=self.ui.tk_canvas_section_display.create_image(237,87,anchor='center',image=self.image_file2)
 		# TODO 组件初始化 赋值操作		
